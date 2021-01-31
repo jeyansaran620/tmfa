@@ -21,6 +21,38 @@ class MemberForm extends React.Component{
         };
     }
 
+    validateMember(state,name)
+    {
+        if(!state)
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else if( this.state.NameError !== '' && name !== "Name")
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else if ( this.state.EmailError !== '' && name !== "Email")
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else if (this.state.MobileError !== '' && name !== "Mobile")
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else if (this.state.OrgError !== '' && name !== "Org")
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else if( this.state.CountryError !== '' && name !== "Coun")
+        {
+            this.props.MemberErrorChange(this.props.number,true)
+        }
+        else
+        {
+            this.props.MemberErrorChange(this.props.number,false)
+        }
+    }
+
     validateName(name)
     {
         if (! /^[A-Za-z ]+$/.test(name))
@@ -31,6 +63,7 @@ class MemberForm extends React.Component{
         return 'Name should not exceed 12 characters'
         return ''
     }
+
     validateEmail(mail)
     {
         if (! /\S+@\S+\.\S+/.test(mail))
@@ -67,6 +100,7 @@ class MemberForm extends React.Component{
             Name: e.target.value,
             NameError : err
         });
+        this.validateMember(err === '',"Name");
     }
     memberEmailChange(e)
     {
@@ -79,6 +113,8 @@ class MemberForm extends React.Component{
             Email: e.target.value,
             EmailError : err
         });
+        
+        this.validateMember(err === '',"Email");
     }
 
     memberMobileChange(e)
@@ -92,15 +128,30 @@ class MemberForm extends React.Component{
             Mobile: e.target.value,
             MobileError : err
         });
+        
+        this.validateMember(err === '',"Mobile");
     }
 
     changeGrade(change)
     {
-        this.props.MemberGradeChange(this.props.number,change)
-        this.setState({
-            Grade: change,
-            GradeError : ''
-        });   
+        if(change === this.state.Grade)
+        {
+            return null;
+        }
+        if(change === "Work" && this.props.WorkCount > 1)
+        {
+            this.setState({
+                GradeError : 'A team Can\'t have more than 2 working hackers'
+            });   
+        }
+        else
+        {
+            this.props.MemberGradeChange(this.props.number,change)
+            this.setState({
+                Grade: change,
+                GradeError : ''
+            });
+        }
     }
 
     memberOrgChange(e)
@@ -112,8 +163,11 @@ class MemberForm extends React.Component{
         }
         this.setState({
             Organisation: e.target.value,
+            GradeError: this.state.Grade === '' ? 'Select a Grade' : '',
             OrgError : err
         });
+        
+        this.validateMember(err === '',"Org");
     }
 
     
@@ -126,18 +180,22 @@ class MemberForm extends React.Component{
         }
         this.setState({
             Country: e.target.value,
+            GradeError: this.state.Grade === '' ? 'Select a Grade' : '',
             CountryError : err
         });
+        
+        this.validateMember(err === '',"Country");
     }
+
 
     render()
     {
         return(
             <div className="container">
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><h5>Member Name:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><h5>Name:</h5></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Name`} placeholder="Give Member Name"
+                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Name`} placeholder="Give Name"
                             value={this.state.Name} onChange={(e) => this.memberNameChange(e)} />
                         <FormText>
                             {this.state.NameError === '' ? null : <h6 >{this.state.NameError}</h6>}
@@ -145,9 +203,9 @@ class MemberForm extends React.Component{
                     </div>
                 </FormGroup>
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><h5>Member Email:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><h5>Email:</h5></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mail`} placeholder="Give Member Email"
+                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mail`} placeholder="Give Email"
                             value={this.state.Email} onChange={(e) => this.memberEmailChange(e)} />
                         <FormText>
                             {this.state.EmailError === '' ? null : <h6 >{this.state.EmailError}</h6>}
@@ -156,9 +214,9 @@ class MemberForm extends React.Component{
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><h5>Member Mobile:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><h5>Mobile:</h5></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mobile`} placeholder="Give Member Mobile"
+                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mobile`} placeholder="Give Mobile"
                             value={this.state.Mobile} onChange={(e) => this.memberMobileChange(e)} />
                         <FormText>
                             {this.state.MobileError === '' ? null : <h6 >{this.state.MobileError}</h6>}
@@ -167,7 +225,7 @@ class MemberForm extends React.Component{
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><h5>Member Grade:</h5></Label>
+                    <Label className="col-4 text-center"><h5>Grade:</h5></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
                             <div className={`col-4 p-2 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>

@@ -54,7 +54,7 @@ class NavBar extends React.Component{
             <>
                 <Navbar dark expand="md">
                     <div className="container">
-                        <NavbarBrand className="mr-auto linker navbarbrand" onClick={() =>  this.props.history.push("/Home")} >TMFA - GCT</NavbarBrand>
+                        <NavbarBrand className="mr-auto linker" onClick={() =>  this.props.history.push("/Home")} >TMFA - GCT</NavbarBrand>
                        
                             {this.RenderList()}
                       

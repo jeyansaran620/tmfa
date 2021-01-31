@@ -11,7 +11,7 @@ class MainForm extends React.Component{
             TeamNameError: '',
             Theme : '',
             ThemeError : '',
-            ProfCount: 0,
+            WorkCount: 0,
             TeamMembers: [
                 {
                     Name: '',
@@ -20,7 +20,7 @@ class MainForm extends React.Component{
                     Grade: '',
                     Organisation: '',
                     Country: '',
-                    error: false
+                    Error: false
                 },
                 {
                     Name: '',
@@ -29,10 +29,11 @@ class MainForm extends React.Component{
                     Grade: '',
                     Organisation: '',
                     Country: '',
-                    error: false
+                    Error: false
                 }
             ],
-            CountError: ''
+            CountError: '',
+            SubmitError: ''
         };
     }
 
@@ -40,6 +41,49 @@ class MainForm extends React.Component{
     submitForm(e)
     {
         e.preventDefault();
+        let error = false;
+        let completed = true;
+        if (this.state.TeamName === '' || this.state.Theme === '' || this.state.TeamName === '')
+        {
+            this.setState({
+                ThemeError : this.state.Theme === '' ? 'Select a Theme' : '',
+                SubmitError : 'fill all the team detail'
+            });
+            completed = false;
+            return null;      
+        }
+        else if (this.state.TeamNameError !== '')
+        {
+            error = true;
+        }
+        this.state.TeamMembers.map((mem) => {
+            if(mem.Error)
+            {
+                error = true;
+                return null;
+            } 
+            else if(mem.Name === '' || mem.Email === '' || mem.Grade === '' || mem.Mobile === '' || mem.Organisation === '' || mem.Country === '')
+            {
+                this.setState({
+                    SubmitError : 'fill all the member details'
+                });
+                completed = false;
+            }
+            return null;
+        })
+        if(error)
+        {
+            this.setState({
+                SubmitError : 'resolve all the errors'
+            });
+        }
+        else if(!error && completed)
+        {
+            this.setState({
+                SubmitError : ''
+            });
+            console.log("done", this.state)
+        }
     }
 
     validateName(name)
@@ -144,9 +188,20 @@ class MainForm extends React.Component{
     {
         let members = this.state.TeamMembers;
         members[i-1].Grade = grade;
-        this.setState({
-            TeamMembers: members
+        let WorkCount = 0;
+        members.map((mem) => 
+        {
+            if(mem.Grade === "Work")
+            {
+                WorkCount += 1;
+            }
+            return null;
         })
+        this.setState({
+            TeamMembers: members,
+            WorkCount 
+        })
+
     }
     
     MemberOrgChange = (i,org) =>
@@ -166,9 +221,17 @@ class MainForm extends React.Component{
             TeamMembers: members
         })
     }
+    MemberErrorChange = (i,error) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Error = error;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+
     render()
     {
-        console.log(this.state.TeamMembers)
         return (
             <div className="container">
             <Form className="form" onSubmit={(e) => this.submitForm(e)}>
@@ -210,8 +273,8 @@ class MainForm extends React.Component{
                            
                         </div>
                         <div className="row justify-content-around">
-                            <button className="col-2 theme-option text-center" onClick={() => this.decreaseCount()}>-</button>
-                            <button className="col-2 theme-option text-center" onClick={() => this.increaseCount()}>+</button>
+                            <button className="col-2 theme-option text-center" disabled={this.state.TeamMembers.length < 3} onClick={() => this.decreaseCount()}>-</button>
+                            <button className="col-2 theme-option text-center" disabled={this.state.TeamMembers.length > 3} onClick={() => this.increaseCount()}>+</button>
                         </div>
                         <FormText>
                             {this.state.CountError === '' ? null : <h6 >{this.state.CountError}</h6>}
@@ -226,7 +289,7 @@ class MainForm extends React.Component{
                         return(
                         <div className="p-2" key={i}>
                             <h4 style={{padding:"1.5rem"}}>Member {i+1} {i===0 ? " - Team Lead" : null}</h4> 
-                            <MemberForm number = {i+1} 
+                            <MemberForm number = {i+1} WorkCount = {this.state.WorkCount} MemberErrorChange = {this.MemberErrorChange}
                                 MemberNameChange = {this.MemberNameChange}  MemberEmailChange = {this.MemberEmailChange} 
                                 MemberMobileChange = {this.MemberMobileChange} MemberGradeChange = {this.MemberGradeChange} 
                                 MemberOrgChange = {this.MemberOrgChange} MemberCountryChange = {this.MemberCountryChange}/>
@@ -234,6 +297,9 @@ class MainForm extends React.Component{
                        ) 
                     })
                 }
+                <FormText>
+                        {this.state.SubmitError === '' ? null : <h6 >{this.state.SubmitError}</h6>}
+                </FormText>
                 <FormGroup className="row p-2">
                     <div className="col-4 offset-7">
                         <Button

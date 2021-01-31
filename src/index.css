@@ -16,7 +16,7 @@ code {
   border-radius: 5px;
   margin: 2px;
 }
-.navbarbrand {
+.navbar-dark .navbar-brand{
   font-size: 1.5rem;
   color : #7A4313;
   font-weight: bold;
