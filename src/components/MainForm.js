@@ -1,6 +1,7 @@
 import React from 'react';
 import { hostname } from '../hostname';
 import {  Button, Form, FormGroup, Label, Input,FormText } from 'reactstrap';
+import MemberForm from './MemberForm';
 
 class MainForm extends React.Component{
     constructor(props) {
@@ -16,13 +17,19 @@ class MainForm extends React.Component{
                     Name: '',
                     Email: '',
                     Mobile: '',
-                    Grade: {}
+                    Grade: '',
+                    Organisation: '',
+                    Country: '',
+                    error: false
                 },
                 {
                     Name: '',
                     Email: '',
                     Mobile: '',
-                    Grade: {}
+                    Grade: '',
+                    Organisation: '',
+                    Country: '',
+                    error: false
                 }
             ],
             CountError: ''
@@ -35,11 +42,22 @@ class MainForm extends React.Component{
         e.preventDefault();
     }
 
+    validateName(name)
+    {
+        if (! /^[A-Za-z ]+$/.test(name))
+        return 'Name should contain only alphabets'
+        else if(name.trim().length < 4)
+        return 'Name Should atleast have 4 characters'
+        else if (name.trim().length > 12)
+        return 'Name should not exceed 12 characters'
+        return ''
+    }
+
     teamNameChange(e)
     {
         this.setState({
             TeamName: e.target.value,
-            TeamNameError : ''
+            TeamNameError : this.validateName(e.target.value)
         });
     }
 
@@ -66,7 +84,10 @@ class MainForm extends React.Component{
                 Name: '',
                 Email: '',
                 Mobile: '',
-                Grade: {}
+                Grade: '',
+                Organisation: '',
+                Country: '',
+                error: false
             })
             this.setState({
                 TeamMembers: members
@@ -89,6 +110,61 @@ class MainForm extends React.Component{
                 TeamMembers: members
             })
         }
+    }
+
+    MemberNameChange = (i,name) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Name = name;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+
+    MemberEmailChange = (i,mail) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Email = mail;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+
+    MemberMobileChange = (i,mobile) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Mobile = mobile;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+    
+    
+    MemberGradeChange = (i,grade) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Grade = grade;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+    
+    MemberOrgChange = (i,org) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Organisation = org;
+        this.setState({
+            TeamMembers: members
+        })
+    }
+    
+    MemberCountryChange = (i,country) =>
+    {
+        let members = this.state.TeamMembers;
+        members[i-1].Country = country;
+        this.setState({
+            TeamMembers: members
+        })
     }
     render()
     {
@@ -129,8 +205,7 @@ class MainForm extends React.Component{
                                 this.state.TeamMembers.map((mem,i) =>
                                 {
                                     return  <img key={i} className="col-3 p-1" href={`#k`} src="./images/hacker.png" alt="hacker" />
-                                }
-                                 )
+                                })
                             }  
                            
                         </div>
@@ -144,10 +219,25 @@ class MainForm extends React.Component{
                     </div>
                 </FormGroup>
 
+                <h4 className="p-2" style={{padding:"1.5rem"}}>Team Members</h4>
+                {
+                    this.state.TeamMembers.map((mem,i) =>
+                    {
+                        return(
+                        <div className="p-2" key={i}>
+                            <h4 style={{padding:"1.5rem"}}>Member {i+1} {i===0 ? " - Team Lead" : null}</h4> 
+                            <MemberForm number = {i+1} 
+                                MemberNameChange = {this.MemberNameChange}  MemberEmailChange = {this.MemberEmailChange} 
+                                MemberMobileChange = {this.MemberMobileChange} MemberGradeChange = {this.MemberGradeChange} 
+                                MemberOrgChange = {this.MemberOrgChange} MemberCountryChange = {this.MemberCountryChange}/>
+                        </div>
+                       ) 
+                    })
+                }
                 <FormGroup className="row p-2">
                     <div className="col-4 offset-7">
                         <Button
-                            type = "submit" onClick={(e) => this.submitForm(e)}>Add Team</Button>
+                            type = "submit" onClick={(e) => this.submitForm(e)}>Register</Button>
                     </div>
                 </FormGroup>
             </Form>
