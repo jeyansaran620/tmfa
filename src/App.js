@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { Route, Switch , Redirect } from "react-router-dom";
+import Home from './components/Home';
+import NavBar from './components/NavBar';
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Switch >
+                <Route path="/Home" component={() => <Home />} />
+
+               {/*  <Route path="/Home" render={(props) => {
+                    if (auth.isAuthenticated()) {
+                        return <Home {...props} />;
+                    } 
+                    else {
+                        return <OpenHome {...props} />;
+                    }}} /> */}
+
+
+                <Redirect to="/Home"/>
+      </Switch>
+
     </div>
   );
 }

@@ -1,0 +1,1 @@
+export const hostname = "https://track-tool.herokuapp.com/";
