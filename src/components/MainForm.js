@@ -1,5 +1,6 @@
 import React from 'react';
 import { hostname } from '../hostname';
+import {withRouter} from 'react-router-dom';
 import {  Button, Form, FormGroup, Label, Input,FormText } from 'reactstrap';
 import MemberForm from './MemberForm';
 
@@ -79,10 +80,48 @@ class MainForm extends React.Component{
         }
         else if(!error && completed)
         {
-            this.setState({
-                SubmitError : ''
-            });
-            console.log("done", this.state)
+            let team = {};
+            team.TeamName  = this.state.TeamName;
+            team.Theme  = this.state.Theme;
+            team.WorkCount  = this.state.WorkCount;
+            team.TeamMembers  = [];
+            this.state.TeamMembers.map((mem) =>
+            {
+                let newMem = {};
+                newMem.Name = mem.Name;
+                newMem.Email = mem.Email;
+                newMem.Mobile = mem.Mobile;
+                newMem.Grade = mem.Grade;
+                newMem.Organisation = mem.Organisation;
+                newMem.Country = mem.Country;
+                team.TeamMembers.push(newMem);
+                return null;
+            })
+
+            const headers = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(team)
+            };
+
+            fetch( `${hostname}teams`, headers)
+            .then(response => response.json())
+            .then(json => 
+                {
+                    console.log(json);
+                   this.setState({
+                    SubmitError : ''
+                });
+                console.log("done", this.state)
+                
+                this.props.history.push(`/FormSuccess/${json._id}`);
+                })
+                .catch((err) => {
+                    console.log(err)
+                    this.setState({
+                        SubmitError : 'Registration Went Wrong !!!'
+                    });
+                })
         }
     }
 
@@ -313,4 +352,4 @@ class MainForm extends React.Component{
     }
 }
 
-export default MainForm;
+export default withRouter(MainForm);
