@@ -3,12 +3,12 @@ import { Card, CardText, CardTitle } from 'reactstrap';
 import { hostname } from '../hostname';
 import { withRouter } from 'react-router-dom';
 
-class FormSuccess extends React.Component
+class RegisteredTeams extends React.Component
 {
     constructor(props) {
         super(props);
         this.state = {
-            team: null,
+            teams: null,
             fetchError : ''
         };
     }
@@ -19,32 +19,32 @@ class FormSuccess extends React.Component
             method: 'GET'
         };
 
-        fetch( `${hostname}teams/${this.props.match.params.id}`, headers)
+        fetch( `${hostname}teams/list`, headers)
         .then(response => response.json())
         .then(json => 
             {
                this.setState({
-                    team : json
+                    teams : json
                 })
             })
             .catch((err) => {
                 console.log(err)
                 this.setState({
-                    fetchError : 'team fetch Went Wrong !!!'
+                    fetchError : 'teams fetch Went Wrong !!!'
                 });
             })
         }
 
 render()
 {
-    const {fetchError, team } = this.state;
+    const {fetchError, teams } = this.state;
 
     if (fetchError !== '')
      {
          return (
             <h3 style={{color:"#DE9E48",textAlign:"center"}}>{fetchError}</h3>
     )}
-    else if(team === null)
+    else if(teams === null)
     {
         return (
              <h3 style={{color:"#DE9E48",textAlign:"center"}}>Loading</h3>
@@ -54,9 +54,12 @@ render()
     {
         return(
             <div className="container" >
-                
-                <div className="row p-2">
-                <h4 className="col-5 m-1" >Registration Success</h4>
+                {
+                    teams.map((team,i) => {
+                        return(
+                        <div key = {i}>
+                             <div className="row p-2">
+                <h4 className="col-5 m-1" >Team {` ${i+1} `} Details</h4>
                 </div>
                 <Card body outline color="secondary" className="col-10 m-1">
         
@@ -92,6 +95,10 @@ render()
 
                 </div>
                 </Card>
+                        </div>)
+                    })
+                }
+    
             </div>
         )
     }
@@ -100,4 +107,4 @@ render()
 
 
   
-export default withRouter(FormSuccess);
+export default withRouter(RegisteredTeams);
