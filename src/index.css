@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  font-size: 0.75rem;
+  background-color: #23292C;
+  color : floralwhite;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,20 +16,42 @@ code {
 }
 
 .navbar-dark {
-  border-radius: 5px;
-  margin: 2px;
+  background-color: #23292C;
 }
-.navbar-dark .navbar-brand{
+.nav-brand{
   font-size: 1.5rem;
-  color : #7A4313;
+  color : floralwhite;
   font-weight: bold;
+}
+
+.countdown-style
+{
+  color: floralwhite;
+  background-color:#23292C;
+  border: floralwhite 2px solid;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.card
+{
+  color:#23292C;
+}
+.countdown-title
+{
+  text-align: center;
+  padding: 0.3rem;
+  font-size: 1rem;
 }
 
 .theme-option {
   border-radius: 5px;
   margin: 2px;
   border: 3px solid darkgrey;
-  padding: 2px;
+  padding: 3px;
+  font-size: 0.65rem;
 }
 
 .theme-option-select {

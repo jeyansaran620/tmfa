@@ -228,9 +228,9 @@ class MemberForm extends React.Component{
                     <Label className="col-4 text-center"><h5>Grade:</h5></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
-                            <div className={`col-4 p-2 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>
-                            <div className={`col-4 p-2 m-0 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> Degree </div>
-                            <div className={`col-4 p-2 m-0 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}> Work </div>
+                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>
+                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> Degree </div>
+                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}> Work </div>
                      </div>
                         <FormText>
                             {this.state.GradeError === '' ? null : <h6 >{this.state.GradeError}</h6>}

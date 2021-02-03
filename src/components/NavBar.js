@@ -52,9 +52,9 @@ class NavBar extends React.Component{
     render(){
         return (
             <>
-                <Navbar dark expand="md">
+                <Navbar dark expand="md" sticky="top"  >
                     <div className="container">
-                        <NavbarBrand className="mr-auto linker" onClick={() =>  this.props.history.push("/Home")} >TMFA - GCT</NavbarBrand>
+                        <div className="mr-auto nav-brand linker" onClick={() =>  this.props.history.push("/Home")} >Niral Kalam</div>
                        
                             {this.RenderList()}
                       

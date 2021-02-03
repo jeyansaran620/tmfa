@@ -290,8 +290,9 @@ class MainForm extends React.Component{
                     <Label className="col-4 text-center"><h5>Your Theme:</h5></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
-                            <div className={`col-5 p-2 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> Tamil Arts </div>
-                            <div className={`col-5 p-2 theme-option text-center ${this.state.Theme === "Tamil Medicine" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Medicine")}> Tamil Medicine </div>
+                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> Tamil Arts </div>
+                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Medicine" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Medicine")}> Tamil Medicine </div>
+                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Wiki" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Wiki")}> Tamil Wiki </div>
                         </div>
                         <FormText>
                             {this.state.ThemeError === '' ? null : <h6 >{this.state.ThemeError}</h6>}
@@ -342,7 +343,7 @@ class MainForm extends React.Component{
                 <FormGroup className="row p-2">
                     <div className="col-4 offset-7">
                         <Button
-                            type = "submit" onClick={(e) => this.submitForm(e)}>Register</Button>
+                            type = "submit" onClick={(e) => this.submitForm(e)}>Submit Team</Button>
                     </div>
                 </FormGroup>
             </Form>
