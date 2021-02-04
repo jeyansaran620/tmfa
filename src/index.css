@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-size: 0.75rem;
-  background-color: #23292C;
+  background-color: floralwhite;
   color : floralwhite;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -15,13 +15,26 @@ code {
     monospace;
 }
 
+.container-fluid{
+  padding-right: 0; /*15px in bootstrap.css*/
+  padding-left: 0;  /*idem*/
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .navbar-dark {
   background-color: #23292C;
+  border: 3px solid white;
 }
 .nav-brand{
   font-size: 1.5rem;
   color : floralwhite;
   font-weight: bold;
+}
+
+.logo-box
+{
+  background-color: #23292C;
 }
 
 .countdown-style

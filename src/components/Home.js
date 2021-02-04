@@ -1,9 +1,6 @@
 import React from 'react';
 import MainForm from './MainForm';
-
-import { CountDownDaily } from '@nilevia/count-down-timer-react'
-import '@nilevia/count-down-timer-react/dist/index.css'
- 
+import CountDown from './CountDown';
 
 
 class Home extends React.Component{
@@ -16,12 +13,11 @@ class Home extends React.Component{
     {
         return (
             <div>
-                <div className = "countdown-style text-center">
-                    <div className="countdown-title">Registration Opens in </div>
-                 <CountDownDaily
-                    endDate={new Date('02/10/2021 00:00:00').toISOString()} operator=":"
-                    dayAffix="days"   hourAffix=""
-                    minutesAffix=""  secondAffix="" />
+                <div className="row">
+
+                <div className="logo-box">
+                    hello
+                </div>
                 </div>
         </div>
         )
