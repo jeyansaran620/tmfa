@@ -15,17 +15,24 @@ code {
     monospace;
 }
 
-.container-fluid{
-  padding-right: 0; /*15px in bootstrap.css*/
-  padding-left: 0;  /*idem*/
-  margin-right: 0;
-  margin-left: 0;
+.container
+{
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px; 
+  margin-left: 0px;
+}
+.row 
+{
+  width: 100vw;
+  margin-right: 0px; 
+  margin-left: 0px;
 }
 
 .navbar-dark {
   background-color: #23292C;
-  border: 3px solid white;
 }
+
 .nav-brand{
   font-size: 1.5rem;
   color : floralwhite;
@@ -35,6 +42,52 @@ code {
 .logo-box
 {
   background-color: #23292C;
+  height: 95vh;
+  position: relative;
+  overflow: hidden;
+}
+.logo-box .row 
+{
+  width: 100%;
+}
+
+.logo-tabs
+{
+  position: absolute;
+  top:10%;
+  left:0;
+  margin-left: 0;
+}
+
+.logo-box .logo-sp
+{
+  height: 8vh;
+  width: auto;
+  padding: 0.25rem;
+  margin:0.25rem;
+}
+
+.logo-box .logo-bl
+{ 
+  height: auto;
+  width: 90%;
+  margin: auto;
+  padding-left: 5%;
+  position: absolute;
+  bottom:5%;
+  left:0;
+}
+
+
+.logo-box .logo
+{ 
+  height: auto;
+  width: 90%;
+  margin: auto;
+  padding-left: 5%;
+  position: absolute;
+  bottom:40%;
+  left:0;
 }
 
 .countdown-style

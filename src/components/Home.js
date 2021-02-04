@@ -12,11 +12,22 @@ class Home extends React.Component{
     render()
     {
         return (
-            <div>
+            <div className="container">
                 <div className="row">
-
-                <div className="logo-box">
-                    hello
+                <div className="col-12 col-lg-6 logo-box">
+                    <div className="logo-tabs row justify-content-around" >
+                    <div className="col-12 text-center col-md-4">
+                            <img className="logo-sp" href={`#k`} src="./images/tmfa.png" alt="hacker" />
+                        </div>
+                        <div className="col-6 text-center col-md-4">
+                            <img className="logo-sp" href={`#k`} src="./images/gct.png" alt="hacker" />
+                        </div>
+                        <div className="col-6 text-center col-md-4">
+                            <img className="logo-sp" href={`#k`} src="./images/infitt.png" alt="hacker" />
+                        </div>
+                    </div>
+                    <img className="logo-bl" href={`#k`} src="./images/logo-below.png" alt="hacker" />
+                    <img className="logo" href={`#k`} src="./images/logo.png" alt="hacker" />
                 </div>
                 </div>
         </div>

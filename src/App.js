@@ -8,7 +8,7 @@ import RegisteredTeams from './components/RegisteredTeams';
 
 const App = () => {
   return (
-    <div className="App container-fluid">
+    <div className="App">
       <NavBar />
       <Switch >
                 <Route path="/Niralkalam" component={() => <Home />} />
