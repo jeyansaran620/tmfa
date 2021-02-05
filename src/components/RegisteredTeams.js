@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardText, CardTitle } from 'reactstrap';
+import { Card, CardTitle } from 'reactstrap';
 import { hostname } from '../hostname';
 import { withRouter } from 'react-router-dom';
 
@@ -67,7 +67,7 @@ render()
 
                 <div className="row p-2 m-1">Team Theme: {team.Theme}</div>
 
-                <div className="row p-2 m-1">Professionals Count: {team.WorkCount}</div>
+                <div className="row p-2 m-1">Having Mentor: {(team.WorkCount > 0).toString()}</div>
              
                 <div className="row p-2">
                     <div className="container">
@@ -78,7 +78,7 @@ render()
                     :
                      team.TeamMembers.reverse().map((mem,i) =>{
                          return(
-                              <Card body outline color="secondary" key ={i} className="col-11 col-sm-5 m-2">
+                              <Card body outline color="secondary" key ={i} className="col-11 card-sec col-sm-5 m-2">
                                     <CardTitle tag="h5">{mem.Name}</CardTitle>
                                     <> 
                                         <h6>{mem.Email}</h6>

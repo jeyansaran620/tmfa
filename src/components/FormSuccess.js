@@ -55,7 +55,7 @@ render()
         return(
             <div className="container" >
                 
-                <div className="row p-2">
+                <div className="row p-2 justify-content-around">
                 <h4 className="col-5 m-1" >Registration Success</h4>
                 </div>
                 <Card body outline color="secondary" className="col-10 m-1">
@@ -63,8 +63,6 @@ render()
                 <div className="row p-2 m-1">Team Name: {team.TeamName}</div>
 
                 <div className="row p-2 m-1">Team Theme: {team.Theme}</div>
-
-                <div className="row p-2 m-1">Professionals Count: {team.WorkCount}</div>
              
                 <div className="row p-2">
                     <div className="container">
@@ -75,7 +73,7 @@ render()
                     :
                      team.TeamMembers.reverse().map((mem,i) =>{
                          return(
-                              <Card body outline color="secondary" key ={i} className="col-11 col-sm-5 m-2">
+                              <Card body outline color="secondary" key ={i} className="col-11 card-sec col-sm-5 m-2">
                                     <CardTitle tag="h5">{mem.Name}</CardTitle>
                                     <> 
                                         <h6>{mem.Email}</h6>

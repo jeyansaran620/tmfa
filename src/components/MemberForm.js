@@ -59,8 +59,8 @@ class MemberForm extends React.Component{
         return 'Name should contain only alphabets'
         else if(name.trim().length < 4)
         return 'Name Should atleast have 4 characters'
-        else if (name.trim().length > 12)
-        return 'Name should not exceed 12 characters'
+        else if (name.trim().length > 18)
+        return 'Name should not exceed 18 characters'
         return ''
     }
 
@@ -138,10 +138,10 @@ class MemberForm extends React.Component{
         {
             return null;
         }
-        if(change === "Work" && this.props.WorkCount > 1)
+        if(change === "Work" && this.props.WorkCount > 0)
         {
             this.setState({
-                GradeError : 'A team Can\'t have more than 2 working hackers'
+                GradeError : 'A team Can\'t have more than 1 working Mentor'
             });   
         }
         else
@@ -193,69 +193,69 @@ class MemberForm extends React.Component{
         return(
             <div className="container">
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><h5>Name:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><div className="form-label" >Name:</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Name`} placeholder="Give Name"
+                        <Input type="string"  id={`Member${this.props.number}Name`} placeholder="Give Name"
                             value={this.state.Name} onChange={(e) => this.memberNameChange(e)} />
                         <FormText>
-                            {this.state.NameError === '' ? null : <h6 >{this.state.NameError}</h6>}
+                            {this.state.NameError === '' ? null : <div className="error-msg">{this.state.NameError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><h5>Email:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><div className="form-label" >Email:</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mail`} placeholder="Give Email"
+                        <Input type="string"  id={`Member${this.props.number}Mail`} placeholder="Give Email"
                             value={this.state.Email} onChange={(e) => this.memberEmailChange(e)} />
                         <FormText>
-                            {this.state.EmailError === '' ? null : <h6 >{this.state.EmailError}</h6>}
+                            {this.state.EmailError === '' ? null : <div className="error-msg">{this.state.EmailError}</div>}
                         </FormText>
                     </div>
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><h5>Mobile:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><div className="form-label" >Mobile:</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Mobile`} placeholder="Give Mobile"
+                        <Input type="string"  id={`Member${this.props.number}Mobile`} placeholder="Give Mobile"
                             value={this.state.Mobile} onChange={(e) => this.memberMobileChange(e)} />
                         <FormText>
-                            {this.state.MobileError === '' ? null : <h6 >{this.state.MobileError}</h6>}
+                            {this.state.MobileError === '' ? null : <div className="error-msg">{this.state.MobileError}</div>}
                         </FormText>
                     </div>
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><h5>Grade:</h5></Label>
+                    <Label className="col-4 text-center"><div className="form-label" >Grade:</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
-                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>
-                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> Degree </div>
-                            <div className={`col-3 p-2 m-0 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}> Work </div>
+                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>
+                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> Degree </div>
+                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}> Work </div>
                      </div>
                         <FormText>
-                            {this.state.GradeError === '' ? null : <h6 >{this.state.GradeError}</h6>}
+                            {this.state.GradeError === '' ? null : <div className="error-msg">{this.state.GradeError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-5 col-md-4 text-center" for={`Member${this.props.number}Org`} ><h5>Organisation:</h5></Label>
+                    <Label className="col-5 col-md-4 text-center" for={`Member${this.props.number}Org`} ><div className="form-label" >Organisation:</div></Label>
                     <div className="col-7 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Org`} placeholder="Give Organisation"
+                        <Input type="string"  id={`Member${this.props.number}Org`} placeholder="Give Organisation"
                             value={this.state.Organisation} onChange={(e) => this.memberOrgChange(e)} />
                         <FormText>
-                            {this.state.OrgError === '' ? null : <h6 >{this.state.OrgError}</h6>}
+                            {this.state.OrgError === '' ? null : <div className="error-msg">{this.state.OrgError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Country`} ><h5>Country:</h5></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Country`} ><div className="form-label" >Country:</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id={`Member${this.props.number}Country`} placeholder="Give Country"
+                        <Input type="string"  id={`Member${this.props.number}Country`} placeholder="Give Country"
                             value={this.state.Country} onChange={(e) => this.memberCountryChange(e)} />
                         <FormText>
-                            {this.state.CountryError === '' ? null : <h6 >{this.state.CountryError}</h6>}
+                            {this.state.CountryError === '' ? null : <div className="error-msg">{this.state.CountryError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>

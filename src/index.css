@@ -106,7 +106,7 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19vh;
+  right: 19vh;
   top: 17vh;
   transform: rotate(42deg);
   border: 4px solid floralwhite;
@@ -117,7 +117,7 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19vh;
+  right: 19vh;
   top: 17vh;
   transform: rotate(45deg);
   border: 4px solid floralwhite;
@@ -128,7 +128,7 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19vh;
+  right: 19vh;
   top: 17vh;
   transform: rotate(48deg);
   border: 4px solid floralwhite;
@@ -191,15 +191,15 @@ code {
 
 .intro-detail-big
 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
   margin-top: 20vh;
 }
 
 .intro-detail2
 {
-  margin-top: 1.2vh;
-  margin-bottom: 1.2vh;
+  margin-top: 0.75vh;
+  margin-bottom: 0.75vh;
 }
 
 .prize-pic
@@ -289,6 +289,24 @@ code {
   animation: stationt4 15s infinite;
 }
 
+.register
+{
+  text-align: center;
+}
+
+.register-info
+{
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.register img
+{
+  height: 65vh;
+  width: auto; 
+}
 
 
 .spaceship
@@ -320,6 +338,11 @@ code {
 {
   color:#23292C;
 }
+.card-sec
+{
+  background-color: #23292C;
+  color: floralwhite;
+}
 .countdown-title
 {
   text-align: center;
@@ -335,11 +358,36 @@ code {
 }
 
 .theme-option-select {
-  border: 3px solid limegreen;
-  color: limegreen;
+  border: 3px solid greenyellow;
+  background-color: floralwhite;
+  color: #23292C;
+  font-weight: bold;
 }
 
+.error-msg
+{
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: rosybrown;
+}
+.form-control
+{
+  font-size: 0.9rem;
+  height: 1.6rem;
+  margin: 0.25rem;
+}
+.form-label
+{
+  font-weight: 600;
+  font-size: 1.03rem;
+}
 
+.form-heading
+{
+  font-weight: 600;
+  font-size: 1.06rem;
+}
 
 @keyframes rot
 {

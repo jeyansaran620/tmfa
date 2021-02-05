@@ -34,6 +34,7 @@ class MainForm extends React.Component{
                 }
             ],
             CountError: '',
+            submitted: false,
             SubmitError: ''
         };
     }
@@ -42,13 +43,17 @@ class MainForm extends React.Component{
     submitForm(e)
     {
         e.preventDefault();
+        this.setState({
+            submitted : true
+        });
         let error = false;
         let completed = true;
         if (this.state.TeamName === '' || this.state.Theme === '' || this.state.TeamName === '')
         {
             this.setState({
                 ThemeError : this.state.Theme === '' ? 'Select a Theme' : '',
-                SubmitError : 'fill all the team detail'
+                SubmitError : 'fill all the team detail',
+                submitted: false
             });
             completed = false;
             return null;      
@@ -66,7 +71,8 @@ class MainForm extends React.Component{
             else if(mem.Name === '' || mem.Email === '' || mem.Grade === '' || mem.Mobile === '' || mem.Organisation === '' || mem.Country === '')
             {
                 this.setState({
-                    SubmitError : 'fill all the member details'
+                    SubmitError : 'fill all the member details',
+                    submitted: false
                 });
                 completed = false;
             }
@@ -75,7 +81,8 @@ class MainForm extends React.Component{
         if(error)
         {
             this.setState({
-                SubmitError : 'resolve all the errors'
+                SubmitError : 'resolve all the errors',
+                submitted: false
             });
         }
         else if(!error && completed)
@@ -119,7 +126,8 @@ class MainForm extends React.Component{
                 .catch((err) => {
                     console.log(err)
                     this.setState({
-                        SubmitError : 'Registration Went Wrong !!!'
+                        SubmitError : 'Registration Went Wrong !!!',
+                        submitted: false
                     });
                 })
         }
@@ -131,8 +139,8 @@ class MainForm extends React.Component{
         return 'Name should contain only alphabets'
         else if(name.trim().length < 4)
         return 'Name Should atleast have 4 characters'
-        else if (name.trim().length > 12)
-        return 'Name should not exceed 12 characters'
+        else if (name.trim().length > 20)
+        return 'Name should not exceed 20 characters'
         return ''
     }
 
@@ -274,34 +282,34 @@ class MainForm extends React.Component{
         return (
             <div className="container">
             <Form className="form" onSubmit={(e) => this.submitForm(e)}>
-                    <h4 style={{padding:"1.5rem"}}>Team Details</h4>
+                    <div className="form-heading p-2" >Team Details</div>
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for="teamName" ><h5>Team Name:</h5></Label>
+                    <Label className="col-4 text-center" for="teamName" ><div className="form-label" >Team Name:</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" style={{height:"2rem"}} id="teamName" placeholder="Give Team Name"
+                        <Input type="string" id="teamName" placeholder="Give Team Name"
                             value={this.state.TeamName} onChange={(e) => this.teamNameChange(e)} />
                         <FormText>
-                            {this.state.TeamNameError === '' ? null : <h6 >{this.state.TeamNameError}</h6>}
+                            {this.state.TeamNameError === '' ? null : <div className="error-msg">{this.state.TeamNameError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><h5>Your Theme:</h5></Label>
+                    <Label className="col-4 text-center"><div className="form-label" >Your Theme:</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
                             <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> Tamil Arts </div>
-                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Literature" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Literature")}> Tamil Literature </div>
+                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Literature" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Literature")}> Tamil Lit </div>
                             <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Wiki" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Wiki")}> Tamil Wiki </div>
                         </div>
                         <FormText>
-                            {this.state.ThemeError === '' ? null : <h6 >{this.state.ThemeError}</h6>}
+                            {this.state.ThemeError === '' ? null : <div className="error-msg">{this.state.ThemeError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><h5>Team Count:</h5></Label>
+                    <Label className="col-4 text-center"><div className="form-label" >Team Count:</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">     
                             {
@@ -317,18 +325,18 @@ class MainForm extends React.Component{
                             <button className="col-2 theme-option text-center" disabled={this.state.TeamMembers.length > 3} onClick={() => this.increaseCount()}>+</button>
                         </div>
                         <FormText>
-                            {this.state.CountError === '' ? null : <h6 >{this.state.CountError}</h6>}
+                            {this.state.CountError === '' ? null : <div className="error-msg">{this.state.CountError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
-                <h4 className="p-2" style={{padding:"1.5rem"}}>Team Members</h4>
+                <div className="form-heading p-2" >Team Members</div>
                 {
                     this.state.TeamMembers.map((mem,i) =>
                     {
                         return(
                         <div className="p-2" key={i}>
-                            <h4 style={{padding:"1.5rem"}}>Member {i+1} {i===0 ? " - Team Lead" : null}</h4> 
+                            <div className="form-heading p-3">Member {i+1} {i===0 ? " - Team Lead" : null}</div> 
                             <MemberForm number = {i+1} WorkCount = {this.state.WorkCount} MemberErrorChange = {this.MemberErrorChange}
                                 MemberNameChange = {this.MemberNameChange}  MemberEmailChange = {this.MemberEmailChange} 
                                 MemberMobileChange = {this.MemberMobileChange} MemberGradeChange = {this.MemberGradeChange} 
@@ -338,12 +346,12 @@ class MainForm extends React.Component{
                     })
                 }
                 <FormText>
-                        {this.state.SubmitError === '' ? null : <h6 >{this.state.SubmitError}</h6>}
+                        {this.state.SubmitError === '' ? null : <div className="error-msg">{this.state.SubmitError}</div>}
                 </FormText>
                 <FormGroup className="row p-2">
                     <div className="col-4 offset-7">
                         <Button
-                            type = "submit" onClick={(e) => this.submitForm(e)}>Submit Team</Button>
+                            type = "submit" onClick={(e) => this.submitForm(e)} disabled={this.state.submitted}>{this.state.submitted ? "Loading" : "Submit"}</Button>
                     </div>
                 </FormGroup>
             </Form>
