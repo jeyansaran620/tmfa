@@ -106,8 +106,8 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19%;
-  top: 19%;
+  left: 19vh;
+  top: 17vh;
   transform: rotate(42deg);
   border: 4px solid floralwhite;
   color: #23292C;  
@@ -117,8 +117,8 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19%;
-  top: 19%;
+  left: 19vh;
+  top: 17vh;
   transform: rotate(45deg);
   border: 4px solid floralwhite;
   color: #23292C;  
@@ -128,8 +128,8 @@ code {
   position: absolute;
   width: 62vh;
   height: 62vh;
-  left: 19%;
-  top: 19%;
+  left: 19vh;
+  top: 17vh;
   transform: rotate(48deg);
   border: 4px solid floralwhite;
   color: #23292C;  
@@ -176,8 +176,48 @@ code {
   color: #23292C;
 }
 
-.intro .detail
+.intro-detail
 {
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 20vw;
+}
+
+.intro-detail1
+{
+  margin-top: 1.2vw;
+  margin-bottom: 1.2vw;
+}
+
+.intro-detail-big
+{
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.intro-detail2
+{
+  margin-top: 1.2vh;
+  margin-bottom: 1.2vh;
+}
+
+.prize-pic
+{
+  margin: auto;
+  height: auto;
+  width: 90%;
+}
+
+.prize-font
+{
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bolder;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235), 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
 }
 
 .schedule-lines
@@ -262,17 +302,20 @@ code {
   transform: rotate(60deg);
   animation: spaceMove 15s infinite;
 }
+
+
 .countdown-style
 {
-  color: floralwhite;
-  background-color:#23292C;
-  border: floralwhite 2px solid;
-  display: inline-block;
+  background-color: rgba(255, 255, 255, .05);  
+  backdrop-filter: blur(5px);
   border-radius: 5px;
-  padding: 0.5rem;
-  font-size: 1.5rem;
+  padding: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
+
 }
+
 .card
 {
   color:#23292C;
@@ -281,7 +324,6 @@ code {
 {
   text-align: center;
   padding: 0.3rem;
-  font-size: 1rem;
 }
 
 .theme-option {

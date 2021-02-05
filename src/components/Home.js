@@ -38,8 +38,18 @@ class Home extends React.Component{
                     <div className="intro-bg3">
                     </div>
                         <div className="intro-detail">
-                        <h3>hello</h3>
-                         </div>
+                        <div className="intro-detail1"><b>Niralkalam'21</b> is </div>
+                        <div className="intro-detail1">a three-day international </div>
+                        <div className="intro-detail1">tamil Hackathon to provide </div>
+                        <div className="intro-detail1">technical solutions for current </div>
+                        <div className="intro-detail1">issues and modern problems related to </div>
+                        <div className="intro-detail1">Tamil literature,Tamil arts and Tamil Wikipedia.</div>
+                        <div className="intro-detail1">Our aim is to inculcate Tamil with modern </div>
+                        <div className="intro-detail1">technologies and to create awareness </div>
+                        <div className="intro-detail1">among students about the standards </div>
+                        <div className="intro-detail1">and enrichment of </div>
+                        <div className="intro-detail1">Tamil language.</div>
+                        </div>
                 </div>   
                 <div className="col-12 d-none d-lg-block col-lg-6 intro-box">
                     <div className="intro-bg-big1">
@@ -48,13 +58,29 @@ class Home extends React.Component{
                     </div>
                     <div className="intro-bg-big3">
                     </div>
-                        <div className="intro-detail">
-                        <h3>hello</h3>
+                    <div className="intro-detail-big">
+                        <div className="intro-detail2"><b>Niralkalam'21</b> is </div>
+                        <div className="intro-detail2">a three-day international </div>
+                        <div className="intro-detail2">tamil Hackathon to provide </div>
+                        <div className="intro-detail2">technical solutions for current </div>
+                        <div className="intro-detail2">issues and modern problems related to </div>
+                        <div className="intro-detail2">Tamil literature,Tamil arts and Tamil Wikipedia.</div>
+                        <div className="intro-detail2">Our aim is to inculcate Tamil with modern </div>
+                        <div className="intro-detail2">technologies and to create awareness </div>
+                        <div className="intro-detail2">among students about the standards </div>
+                        <div className="intro-detail2">and enrichment of </div>
+                        <div className="intro-detail2">Tamil language.</div>
                          </div>
                 </div>  
                 </div>
                 <div className="row row-main justify-content-around">
-                    <div className="col-10 col-lg-5 schedule offset-1">
+
+                    <div className="col-10 col-lg-5 offset-1">
+                        <div className="prize-font">Cash Prize worth 30K</div>
+                        <img className="prize-pic" href={`#k`} src="./images/cups.png" alt="hacker" />
+                    </div>
+
+                    <div className="col-10 col-lg-5 offset-1">
                         <div className="row justify-content-center schedule-lines">
                             <div className="col-8 station-t4 m-auto">Niralkalam hacks on Mar 5,6,7</div>
                             <div className="col-4 station4"></div>
@@ -74,6 +100,12 @@ class Home extends React.Component{
                         <img className="spaceship" href={`#k`} src="./images/spaceship.png" alt="hacker" />
                     </div>
                    
+                </div>
+                
+                <div className="row row-main justify-content-around">
+                    <div className="col-10 col-lg-5 offset-1 m-1">
+                        <CountDown />
+                    </div>
                 </div>
         </div>
         )
