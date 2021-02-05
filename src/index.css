@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-size: 0.75rem;
-  background-color: floralwhite;
+  font-size: 1rem;
+  background-color: #23292C;
   color : floralwhite;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -24,9 +24,14 @@ code {
 }
 .row 
 {
-  width: 100vw;
   margin-right: 0px; 
   margin-left: 0px;
+}
+
+.row-main
+{
+  width: 98vw;
+  margin: 0;
 }
 
 .navbar-dark {
@@ -41,10 +46,9 @@ code {
 
 .logo-box
 {
-  background-color: #23292C;
-  height: 95vh;
-  position: relative;
+  height: 92vh;
   overflow: hidden;
+  margin: 0;
 }
 .logo-box .row 
 {
@@ -72,12 +76,11 @@ code {
   height: auto;
   width: 90%;
   margin: auto;
-  padding-left: 5%;
   position: absolute;
-  bottom:5%;
-  left:0;
+  top:30%;
+  left:5%;
+  animation: rot 15s infinite;
 }
-
 
 .logo-box .logo
 { 
@@ -86,10 +89,179 @@ code {
   margin: auto;
   padding-left: 5%;
   position: absolute;
-  bottom:40%;
+  top:60%;
   left:0;
 }
 
+.intro-box
+{
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.intro-bg-big1
+{
+  position: absolute;
+  width: 62vh;
+  height: 62vh;
+  left: 19%;
+  top: 19%;
+  transform: rotate(42deg);
+  border: 4px solid floralwhite;
+  color: #23292C;  
+}
+.intro-bg-big2
+{
+  position: absolute;
+  width: 62vh;
+  height: 62vh;
+  left: 19%;
+  top: 19%;
+  transform: rotate(45deg);
+  border: 4px solid floralwhite;
+  color: #23292C;  
+}
+.intro-bg-big3
+{
+  position: absolute;
+  width: 62vh;
+  height: 62vh;
+  left: 19%;
+  top: 19%;
+  transform: rotate(48deg);
+  border: 4px solid floralwhite;
+  color: #23292C;  
+}
+.intro-box-small
+{
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 110vw;
+}
+.intro-bg1
+{
+  position: absolute;
+  width: 66vw;
+  height: 66vw;
+  left: 17%;
+  top: 17%;
+  transform: rotate(45deg);
+  border: 4px solid floralwhite;
+  color: #23292C;
+}
+.intro-bg2
+{
+  position: absolute;
+  width: 66vw;
+  height: 66vw;
+  left: 17%;
+  top: 17%;
+  transform: rotate(48deg);
+  border: 4px solid floralwhite;
+  color: #23292C;
+}
+.intro-bg3
+{
+  position: absolute;
+  width: 66vw;
+  height: 66vw;
+  left: 17%;
+  top: 17%;
+  transform: rotate(42deg);
+  border: 4px solid floralwhite;
+  color: #23292C;
+}
+
+.intro .detail
+{
+}
+
+.schedule-lines
+{
+  padding: 1rem;
+  width: 100%;
+  margin: auto;
+}
+
+.station1,.station2,.station3,.station4
+{ 
+  height:5rem;
+  width:5rem;
+}
+
+.station1
+{
+  background: url(./images/station-open.png);
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
+  animation: station1 15s infinite;
+}
+
+.station2
+{
+  background: url(./images/station-open.png);
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
+  animation: station2 15s infinite;
+}
+.station3
+{
+  background: url(./images/station-open.png);
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
+  animation: station3 15s infinite;
+}
+.station4
+{
+  background: url(./images/station-open.png);
+  background-repeat: no-repeat;
+  background-size: 5rem 5rem;
+  animation: station4 15s infinite;
+}
+
+.station-t1
+{
+  font-size: 1rem;
+  font-weight: bold;
+  animation: stationt1 15s infinite;
+}
+
+.station-t2
+{
+  font-size: 1rem;
+  font-weight: bold;
+  animation: stationt2 15s infinite;
+}
+.station-t3
+{
+  font-size: 1rem;
+  font-weight: bold;
+  animation: stationt3 15s infinite;
+}
+.station-t4
+{
+  font-size: 1rem;
+  font-weight: bold;
+  animation: stationt4 15s infinite;
+}
+
+
+
+.spaceship
+{
+  position: absolute;
+  width:3rem;
+  height: 4rem;
+  opacity: 100;
+  bottom:80%;
+  left: 75%;
+  transform: rotate(60deg);
+  animation: spaceMove 15s infinite;
+}
 .countdown-style
 {
   color: floralwhite;
@@ -123,4 +295,298 @@ code {
 .theme-option-select {
   border: 3px solid limegreen;
   color: limegreen;
+}
+
+
+
+@keyframes rot
+{
+    0%
+    {
+      transform: rotate(0deg);
+    }
+    40%
+    {
+      transform: rotate(120deg);
+    }
+    50%
+    {
+      transform: rotate(120deg);
+    }
+    90%
+    {
+      transform: rotate(0deg);
+    }
+}
+
+@keyframes spaceMove
+{
+    0%
+    {
+      opacity: 0;
+      bottom:0%;
+      left: 1%;
+      transform: rotate(0deg);
+    }
+    5%
+    {
+      opacity: 100;
+      bottom:0%;
+      left: 1%;
+      transform: rotate(60deg);
+    }
+    10%
+    {
+      opacity: 100;
+      bottom:0%;
+      left: 1%;
+      transform: rotate(60deg);
+    }
+    30%
+    {
+      bottom:30%;
+      left: 75%;
+      transform: rotate(60deg);
+    }
+    40%
+    {
+      bottom:30%;
+      left: 75%;
+      transform: rotate(-60deg);
+    }
+    60%
+    {
+      bottom:55%;
+      left: 1%;
+      transform: rotate(-60deg);
+    }
+    70%
+    {
+      bottom:55%;
+      left: 1%;
+      transform: rotate(60deg);
+    }
+    90%
+    {
+      bottom:80%;
+      left: 75%;
+      transform: rotate(60deg);
+    }
+    95%
+    {
+      opacity: 100;
+      bottom:80%;
+      left: 75%;
+      transform: rotate(0deg);
+    }
+    99%
+    {
+      opacity: 0;
+      bottom:80%;
+      left: 75%;
+      transform: rotate(0deg);
+    }
+    100%
+    {
+      opacity: 0;
+      bottom:80%;
+      left: 1rem;
+      transform: rotate(0deg);
+    }
+}
+
+
+@keyframes station1
+{
+    0%
+    {
+        background: url(./images/station-open.png);     
+        background-repeat: no-repeat;
+        background-size: 5rem 5rem;
+    }
+    5%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    10%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    15%
+    {
+      background: url(./images/station-open.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+}
+
+@keyframes station2
+{
+    25%
+    {
+        background: url(./images/station-open.png);     
+        background-repeat: no-repeat;
+        background-size: 5rem 5rem;
+    }
+    30%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    40%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    45%
+    {
+      background: url(./images/station-open.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+}
+
+@keyframes station3
+{
+    55%
+    {
+        background: url(./images/station-open.png);     
+        background-repeat: no-repeat;
+        background-size: 5rem 5rem;
+    }
+    60%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    70%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    75%
+    {
+      background: url(./images/station-open.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+}
+
+@keyframes station4
+{
+    85%
+    {
+        background: url(./images/station-open.png);     
+        background-repeat: no-repeat;
+        background-size: 5rem 5rem;
+    }
+    90%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    95%
+    {
+      background: url(./images/station.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+    100%
+    {
+      background: url(./images/station-open.png);    
+      background-repeat: no-repeat;
+      background-size: 5rem 5rem;
+    }
+}
+
+
+
+
+@keyframes stationt1
+{
+    0%
+    {
+      font-size: 1rem;
+    }
+    5%
+    {
+      font-size: 1.2rem;
+    }
+    10%
+    {
+      font-size: 1.2rem;
+    }
+    15%
+    {
+      font-size: 1rem;
+    }
+}
+
+@keyframes stationt2
+{
+    25%
+    {
+      font-size: 1rem;
+    }
+    30%
+    {
+      font-size: 1.2rem;
+    }
+    40%
+    {
+      font-size: 1.2rem;
+    }
+    45%
+    {
+      font-size: 1rem;
+    }
+}
+
+@keyframes stationt3
+{
+    55%
+    {
+      font-size: 1rem;
+    }
+    60%
+    {
+      font-size: 1.2rem;
+    }
+    70%
+    {
+      font-size: 1.2rem;
+    }
+    75%
+    {
+      font-size: 1rem;
+    }
+}
+
+@keyframes stationt4
+{
+    85%
+    {
+      font-size: 1rem;
+    }
+    90%
+    {
+      font-size: 1.2rem;
+    }
+    95%
+    {
+      font-size: 1.2rem;
+    }
+    100%
+    {
+      font-size: 1rem;
+    }
 }

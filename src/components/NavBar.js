@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem,} from 'reactstrap';
+import {Navbar, Nav, NavbarToggler, Collapse, NavItem,} from 'reactstrap';
 import { withRouter } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 
@@ -54,7 +54,7 @@ class NavBar extends React.Component{
             <>
                 <Navbar dark expand="md" sticky="top"  >
                     <div className="container">
-                        <div className="mr-auto nav-brand linker" onClick={() =>  this.props.history.push("/Home")} >Niral Kalam</div>
+                        <div className="mr-auto nav-brand linker" onClick={() =>  this.props.history.push("/Home")} >TMFA - GCT</div>
                        
                             {this.RenderList()}
                       
