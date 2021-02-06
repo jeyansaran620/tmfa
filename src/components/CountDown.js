@@ -41,18 +41,18 @@ class CountDown extends React.Component{
                     <div className="countdown-title"> {this.state.timerText}</div>
 
                     { this.state.count === 1 ?
-                    <CountDownTimer dateTime={this.state.TimerDate}
+                    <CountDownTimer className="countdown-date" dateTime={this.state.TimerDate}
                     shouldShowTimeUnits={true} shouldShowSeparator={false}
                     shouldHidePrecedingZeros={true} onCountdownCompletion={() => this.changeClosing(this.state.count)}/>
                     : null}
 
                     { this.state.count === 2 ?
-                    <CountDownTimer dateTime={this.state.TimerDate}
+                    <CountDownTimer className="countdown-date" dateTime={this.state.TimerDate}
                     shouldShowTimeUnits={true} shouldShowSeparator={false}
                     shouldHidePrecedingZeros={true} onCountdownCompletion={() => this.changeClosing(this.state.count)}/>
                     : null}
 
-                    <Button onClick={() => this.props.history.push(`/Register`)} disabled={this.state.count!==2} >Register</Button>
+                    <Button className="countdown-button" onClick={() => this.props.history.push(`/Register`)} disabled={this.state.count!==2} >Register</Button>
                 </div>
         )
     }
