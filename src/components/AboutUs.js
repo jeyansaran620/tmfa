@@ -45,8 +45,8 @@ const AboutUS = () =>
                         International Forum for Information Technology For Tamil - INFITT
                     </div>
                     <div className="about-details">
-                    Tamil Mandram and Fine Arts club of Government College of Technology actively involve in many activities to develop and create awareness about tamil arts and literature among students. In 1975 october 1, Tamil Mandram and Fine Arts club was started. Since then it has done many activities such as cultural fests, research activities, and social activities. There are more than 10 group events under Tamil Arts viz Villupattu, Streetplay, Mime, Drama, Puppet show, Modern drama, Silambattam, Paraiattam, Folk dance and lights show We have been learning and also participating in many college events. 23 books were published by our club students. . Now in this lockdown we have initiated this hackathon to create awareness among students about the importance of tamil computation and  technology in language.
-                    </div>
+                    The International Forum for Information Technology in Tamil (INFITT, read In-Fit; Tamil: உலகத் தமிழ் தகவல் தொழில்நுட்ப மன்றம் (உத்தமம்)) is a non-profit, non-governmental nodal organization for collaboration among professionals, enthusiasts, government entities, and other international organizations working in the development and standardization of information technology for Tamil language. It has active liaison and collaboration with government entities in India, Sri Lanka, Singapore, Malaysia and industry bodies like Unicode Consortium.
+                     </div>
                 </div>
             </div>
         </div>

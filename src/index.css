@@ -581,8 +581,9 @@ code {
 .btn:hover
 {
   color: floralwhite;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
+
 a,a:link, a:visited {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
