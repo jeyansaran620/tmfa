@@ -51,8 +51,8 @@ class MainForm extends React.Component{
         if (this.state.TeamName === '' || this.state.Theme === '' || this.state.TeamName === '')
         {
             this.setState({
-                ThemeError : this.state.Theme === '' ? 'Select a Theme' : '',
-                SubmitError : 'fill all the team detail',
+                ThemeError : this.state.Theme === '' ? (this.props.tamil ? 'ஒன்றைத் தேர்ந்தெடுக்கவும்' : 'Select a Theme') : '',
+                SubmitError : this.props.tamil ? 'அனைத்து குழு விவரங்களையும் நிரப்பவும்' : 'fill all the team detail',
                 submitted: false
             });
             completed = false;
@@ -71,7 +71,7 @@ class MainForm extends React.Component{
             else if(mem.Name === '' || mem.Email === '' || mem.Grade === '' || mem.Mobile === '' || mem.Organisation === '' || mem.Country === '')
             {
                 this.setState({
-                    SubmitError : 'fill all the member details',
+                    SubmitError :  this.props.tamil ? 'அனைத்து உறுப்பினர் விவரங்களையும் நிரப்பவும்' :  'fill all the member details',
                     submitted: false
                 });
                 completed = false;
@@ -81,7 +81,7 @@ class MainForm extends React.Component{
         if(error)
         {
             this.setState({
-                SubmitError : 'resolve all the errors',
+                SubmitError : this.props.tamil ? 'அனைத்து பிழைகளையும் தீர்க்கவும்' : 'resolve all the errors',
                 submitted: false
             });
         }
@@ -126,7 +126,7 @@ class MainForm extends React.Component{
                 .catch((err) => {
                     console.log(err)
                     this.setState({
-                        SubmitError : 'Registration Went Wrong !!!',
+                        SubmitError :  this.props.tamil ? 'பதிவு தவறாகிவிட்டது !!!' :'Registration Went Wrong !!!',
                         submitted: false
                     });
                 })
@@ -135,12 +135,10 @@ class MainForm extends React.Component{
 
     validateName(name)
     {
-        if (! /^[A-Za-z ]+$/.test(name))
-        return 'Name should contain only alphabets'
-        else if(name.trim().length < 4)
-        return 'Name Should atleast have 4 characters'
+        if(name.trim().length < 4)
+        return this.props.tamil ? 'பெயர் குறைந்தபட்சம் 4 எழுத்துக்கள் இருக்க வேண்டும்' : 'Name Should atleast have 4 characters'
         else if (name.trim().length > 20)
-        return 'Name should not exceed 20 characters'
+        return this.props.tamil ? 'பெயர் 20 எழுத்துகளுக்கு மிகாமல் இருக்க வேண்டும்' : 'Name should not exceed 20 characters'
         return ''
     }
 
@@ -165,7 +163,7 @@ class MainForm extends React.Component{
         if(this.state.TeamMembers.length > 3)
         {
             this.setState({
-                CountError : "Team can only have upto 4 hackers"
+                CountError : this.props.tamil ? 'அணியில் 4 உறுப்பினர்கள் வரை மட்டுமே இருக்க முடியும்' :  "Team can only have upto 4 hackers"
             });  
         }
         else
@@ -190,7 +188,7 @@ class MainForm extends React.Component{
         if(this.state.TeamMembers.length < 3)
         {
             this.setState({
-                CountError : "Team should have atleast 2 hackers"
+                CountError : this.props.tamil ? 'அணியில் குறைந்தபட்சம் 2 உறுப்பினர்கள் இருக்க வேண்டும்' : "Team should have atleast 2 hackers"
             });  
         }
         else
@@ -282,34 +280,34 @@ class MainForm extends React.Component{
         return (
             <div className="container">
             <Form className="form" onSubmit={(e) => this.submitForm(e)}>
-                    <div className="form-heading p-2" >Team Details</div>
+                    <div className={`${this.props.tamil ? "tamil" : ""} form-heading p-2`} >{ this.props.tamil ? "அணியின் விவரங்கள்" : "Team Details"}</div>
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for="teamName" ><div className="form-label" >Team Name:</div></Label>
+                    <Label className="col-4 text-center" for="teamName" ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`}  >{ this.props.tamil ? "அணியின் பெயர்:" : "Team Name:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string" id="teamName" placeholder="Give Team Name"
+                        <Input type="string" id="teamName" placeholder={ this.props.tamil ? "அணியின் பெயர் தருக" : "Enter Team Name"}
                             value={this.state.TeamName} onChange={(e) => this.teamNameChange(e)} />
-                        <FormText>
+                        <FormText className={this.props.tamil ? "tamil" : ""}>
                             {this.state.TeamNameError === '' ? null : <div className="error-msg">{this.state.TeamNameError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><div className="form-label" >Your Theme:</div></Label>
+                    <Label className="col-4 text-center"><div className={`form-label ${this.props.tamil ? "tamil" : ""}`}  >{ this.props.tamil ? "அணியின் கருப்பொருள்" : "Team Theme:"}</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
-                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> Tamil Arts </div>
-                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Literature" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Literature")}> Tamil Lit </div>
-                            <div className={`col-3 p-2 theme-option text-center ${this.state.Theme === "Tamil Wiki" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Wiki")}> Tamil Wiki </div>
+                            <div className={`col-5 p-1 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> { this.props.tamil ? "கலைகள்" : "Tamil Arts"} </div>
+                            <div className={`col-5 p-1 theme-option text-center ${this.state.Theme === "Tamil Literature" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Literature")}>{ this.props.tamil ? "இலக்கியம்" : "Tamil Literature"} </div>
+                            <div className={`col-5 p-1 theme-option text-center ${this.state.Theme === "Tamil Wikipedia" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Wikipedia")}> { this.props.tamil ? "விக்கிபீடியா" : "Tamil Wikipedia"} </div>
                         </div>
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.ThemeError === '' ? null : <div className="error-msg">{this.state.ThemeError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><div className="form-label" >Team Count:</div></Label>
+                    <Label className="col-4 text-center"><div className={`form-label ${this.props.tamil ? "tamil" : ""}`}  >{ this.props.tamil ? "உறுப்பினர் எண்ணிக்கை" : "Team Count:"}</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">     
                             {
@@ -324,20 +322,21 @@ class MainForm extends React.Component{
                             <button className="col-2 theme-option text-center" disabled={this.state.TeamMembers.length < 3} onClick={() => this.decreaseCount()}>-</button>
                             <button className="col-2 theme-option text-center" disabled={this.state.TeamMembers.length > 3} onClick={() => this.increaseCount()}>+</button>
                         </div>
-                        <FormText>
+                        <FormText className={this.props.tamil ? "tamil" : ""}>
                             {this.state.CountError === '' ? null : <div className="error-msg">{this.state.CountError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
-                <div className="form-heading p-2" >Team Members</div>
+                <div className={`${this.props.tamil ? "tamil" : ""} form-heading p-2`} >{ this.props.tamil ? "அணி உறுப்பினர்கள்" : "Team Members"}</div>
                 {
                     this.state.TeamMembers.map((mem,i) =>
                     {
                         return(
                         <div className="p-2" key={i}>
-                            <div className="form-heading p-3">Member {i+1} {i===0 ? " - Team Lead" : null}</div> 
-                            <MemberForm number = {i+1} WorkCount = {this.state.WorkCount} MemberErrorChange = {this.MemberErrorChange}
+                            <div className={`${this.props.tamil ? "tamil" : ""} form-heading p-3`}>{ this.props.tamil ? "உறுப்பினர்" : "Member"} {i+1} {i===0 ?(this.props.tamil ? " - அணியின் தலைவர்" : " - Team Lead") : null}</div> 
+                            <MemberForm number = {i+1} tamil={this.props.tamil}
+                                WorkCount = {this.state.WorkCount} MemberErrorChange = {this.MemberErrorChange}
                                 MemberNameChange = {this.MemberNameChange}  MemberEmailChange = {this.MemberEmailChange} 
                                 MemberMobileChange = {this.MemberMobileChange} MemberGradeChange = {this.MemberGradeChange} 
                                 MemberOrgChange = {this.MemberOrgChange} MemberCountryChange = {this.MemberCountryChange}/>
@@ -349,9 +348,9 @@ class MainForm extends React.Component{
                         {this.state.SubmitError === '' ? null : <div className="error-msg">{this.state.SubmitError}</div>}
                 </FormText>
                 <FormGroup className="row p-2">
-                    <div className="col-4 offset-7">
+                    <div className="col-4 m-auto">
                         <Button
-                            type = "submit" onClick={(e) => this.submitForm(e)} disabled={this.state.submitted}>{this.state.submitted ? "Loading" : "Submit"}</Button>
+                            type = "submit" className={this.props.tamil ? "tamil" : ""} onClick={(e) => this.submitForm(e)} disabled={this.state.submitted}>{this.state.submitted ? (this.props.tamil ? "பதிவேற்றப்படுகிறது" : "Loading") : (this.props.tamil ? "சமர்ப்பிக்கவும்" : "Submit")}</Button>
                     </div>
                 </FormGroup>
             </Form>

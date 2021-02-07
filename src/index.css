@@ -43,7 +43,10 @@ code {
   color : floralwhite;
   font-weight: bold;
 }
-
+.space
+{
+  width: 1rem;
+}
 .logo-box
 {
   height: 92vh;
@@ -55,12 +58,12 @@ code {
   width: 100%;
 }
 
-.logo-tabs
+.logo-details
 {
-  position: absolute;
-  top:10%;
-  left:0;
-  margin-left: 0;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  font-weight: 800;
+  text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235), 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
 }
 
 .logo-box .logo-sp
@@ -81,7 +84,10 @@ code {
   left:5%;
   animation: rot 15s infinite;
 }
-
+.logo-bl
+{
+  z-index: -1020;
+}
 .logo-box .logo
 { 
   height: auto;
@@ -183,6 +189,13 @@ code {
   margin-top: 20vw;
 }
 
+.intro-detail-tamil
+{
+  font-size: 2.8vw;
+  text-align: center;
+  margin-top: 25vw;
+}
+
 .intro-detail1
 {
   margin-top: 1.2vw;
@@ -194,6 +207,13 @@ code {
   font-size: 1.05rem;
   text-align: center;
   margin-top: 20%;
+}
+
+.intro-detail-big-tamil
+{
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 23%;
 }
 
 .intro-detail2
@@ -220,6 +240,18 @@ code {
   padding: 1rem;
   text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235), 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
 }
+.prize-font-tamil
+{
+  font-size: 1.8rem;
+  text-align: center;
+  font-weight: bolder;
+  margin: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235), 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
+}
+
 
 .rules-pic
 {
@@ -307,6 +339,32 @@ code {
   animation: stationt4 15s infinite;
 }
 
+.station-t1-tamil
+{
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: stationt1-tamil 15s infinite;
+}
+
+.station-t2-tamil
+{
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: stationt2-tamil 15s infinite;
+}
+.station-t3-tamil
+{
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: stationt3-tamil 15s infinite;
+}
+.station-t4-tamil
+{
+  font-size: 0.75rem;
+  font-weight: bold;
+  animation: stationt4-tamil 15s infinite;
+}
+
 .register
 {
   text-align: center;
@@ -352,7 +410,7 @@ code {
   border-radius: 5px;
   height: 90%;
   padding: 1rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
 
@@ -390,10 +448,11 @@ code {
 
 .theme-option {
   border-radius: 5px;
-  margin: 2px;
   border: 3px solid darkgrey;
   padding: 3px;
   font-size: 0.65rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .theme-option-select {
@@ -458,6 +517,12 @@ code {
 {
  padding: 0.25rem;
 }
+
+.tamil
+{
+  font-size: 0.75rem;
+}
+
 .close
 {
   color: floralwhite;
@@ -506,10 +571,21 @@ code {
   padding-top: 0.75rem;
   padding-bottom: 0.25rem;
 }
-
-.theme-detail
+.theme-heading-tamil
 {
-  text-align: justify;
+  font-size: 0.65rem;
+  font-weight: bold;
+  background-color: #2a3033;
+  border: 1px solid floralwhite;
+  border-radius: 5px;
+  text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
+  padding: 0.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+.theme-detail-tamil
+{
+  font-size:0.65rem;
   padding: 0.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
@@ -534,7 +610,7 @@ code {
 .about-details
 {
   padding: 0.5rem;
-  text-align: justify;
+  text-align: center;
   font-weight: 600;
 }
 .about-photo
@@ -635,52 +711,52 @@ a,a:link, a:visited {
     }
     30%
     {
-      bottom:30%;
+      bottom:26%;
       left: 75%;
       transform: rotate(60deg);
     }
     40%
     {
-      bottom:30%;
+      bottom:26%;
       left: 75%;
       transform: rotate(-60deg);
     }
     60%
     {
-      bottom:55%;
+      bottom:48%;
       left: 1%;
       transform: rotate(-60deg);
     }
     70%
     {
-      bottom:55%;
+      bottom:48%;
       left: 1%;
       transform: rotate(60deg);
     }
     90%
     {
-      bottom:80%;
+      bottom:75%;
       left: 75%;
       transform: rotate(60deg);
     }
     95%
     {
       opacity: 100;
-      bottom:80%;
+      bottom:75%;
       left: 75%;
       transform: rotate(0deg);
     }
     99%
     {
       opacity: 0;
-      bottom:80%;
+      bottom:75%;
       left: 75%;
       transform: rotate(0deg);
     }
     100%
     {
       opacity: 0;
-      bottom:80%;
+      bottom:75%;
       left: 1rem;
       transform: rotate(0deg);
     }
@@ -879,5 +955,87 @@ a,a:link, a:visited {
     100%
     {
       font-size: 1rem;
+    }
+}
+
+
+
+@keyframes stationt1-tamil
+{
+    0%
+    {
+      font-size: 0.75rem;
+    }
+    5%
+    {
+      font-size: 0.78rem;
+    }
+    10%
+    {
+      font-size: 0.78rem;
+    }
+    15%
+    {
+      font-size: 0.75rem;
+    }
+}
+
+@keyframes stationt2-tamil
+{
+    25%
+    {
+      font-size: 0.75rem;
+    }
+    30%
+    {
+      font-size: 0.78rem;
+    }
+    40%
+    {
+      font-size: 0.78rem;
+    }
+    45%
+    {
+      font-size: 0.75rem;
+    }
+}
+
+@keyframes stationt3-tamil
+{
+    55%
+    {
+      font-size: 0.75rem;
+    }
+    60%
+    {
+      font-size: 0.78rem;
+    }
+    70%
+    {
+      font-size: 0.78rem;
+    }
+    75%
+    {
+      font-size: 0.75rem;
+    }
+}
+
+@keyframes stationt4-tamil
+{
+    85%
+    {
+      font-size: 0.75rem;
+    }
+    90%
+    {
+      font-size: 0.78rem;
+    }
+    95%
+    {
+      font-size: 0.78rem;
+    }
+    100%
+    {
+      font-size: 0.75rem;
     }
 }

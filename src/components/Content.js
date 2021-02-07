@@ -49,10 +49,23 @@ export const EnglishThemes = [
     },
     {
         heading:"Tamil in Wikipedia",
-        detail:" There are many projects and problem statements associated with Tamil wikipedia.Participants have to provide solutions for any of them."
+        detail:"There are many projects and problem statements associated with Tamil wikipedia.Participants have to provide solutions for any of them."
     }]
 
-export const TamilThemes = []
+export const TamilThemes = [
+    {
+        heading:"தமிழ்க் கலைகள்",
+        detail:"இக்கருப்பொருளில் தமிழக சித்திரக்கலை,கிராமியக் கலைகள்,தமிழக போர்க்கலைகள்,தமிழக கட்டடக்கலை,நாட்டார்கலைகள் போன்ற பல்வேறு தமிழ் கலைகளைப் பற்றிய சிக்கல் கூற்றுகளுக்குத் தீர்வுகள் காண வேண்டும்."
+    },
+    {
+        heading:"தமிழ் இலக்கியம்",
+        detail:"இக்கருப்பொருளில் தமிழ் இலக்கியம் சார்ந்த சிக்கல் கூற்றுகளுக்கு போட்டியாளர்கள் தீர்வுகள் காணும்படியாக அமையும்."
+    },
+    {
+        heading:"தமிழ் விக்கிபீடியா",
+        detail:"தமிழ் விக்கிபீடியாவில் மேம்படுத்த வேண்டிய பல்வேறு திட்டங்கள்,தற்போது மேற்கொள்ளப்பட்டிருக்கும்  பல்வேறு தொழில்நுட்பம் சார்ந்த செயல்பாடுகளைச் சிக்கல் கூற்றுகளாகக் கொண்டு தீர்வுகள் காண வேண்டும்."
+    }
+]
 
 export const EnglishRules = [
     {

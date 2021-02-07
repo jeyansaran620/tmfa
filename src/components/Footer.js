@@ -1,7 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const  Items = [ 
+
+
+
+const Footer = ({tamil}) =>{
+    
+const  Items = tamil ?  [ 
+    {
+        content:"நிரல்களம்'21",
+        link:"NiralKalam"
+    },
+    {
+        content:"பதிவு செய்ய",
+        link:"Register"
+    },
+    {
+        content:"எங்களை பற்றி",
+        link:"AboutUs"
+    }
+] : [ 
     {
         content:"NiralKalam",
         link:"NiralKalam"
@@ -14,10 +32,7 @@ const  Items = [
         content:"About us",
         link:"AboutUs"
     }
-];
-
-
-const Footer = () =>{
+] 
     return ( 
         <div className="footer">
             <div className="container">       
@@ -49,7 +64,7 @@ const Footer = () =>{
                 </div>  
                 <div className="row row-main justify-content-center">             
                     <div className="col-auto btn m-0 mt-2">
-                        <a href="https://www.linkedin.com/in/jeyansaran620">Designed by jeyansaran620</a>
+                        <a href="https://www.linkedin.com/in/jeyansaran620">{tamil ? "வடிவமைப்பு ஜெயன்" : "Designed by jeyan saran"}</a>
                     </div>
                 </div>
             </div>

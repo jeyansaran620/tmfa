@@ -9,7 +9,7 @@ class CountDown extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            timerText:"Registration Opens in",
+            timerText: this.props.tamil ? "பதிவு திறக்க இன்னும்" : "Registration Opens in",
             TimerDate: new Date('02/10/2021 00:00:00').toISOString(),
             count : 1,
         };
@@ -20,7 +20,7 @@ class CountDown extends React.Component{
         if (count === 1)
         {
             this.setState({
-                timerText: "Registration Closes in",
+                timerText: this.props.tamil ? "பதிவு மூட இன்னும்" : "Registration Closes in",
                 TimerDate: new Date('02/26/2021 00:00:00').toISOString(),
                 count : 2
             })
@@ -28,7 +28,7 @@ class CountDown extends React.Component{
         else if (count === 2)
         {
             this.setState({
-                timerText: "Registration Closed",
+                timerText: this.props.tamil ? "பதிவு மூடப்பட்டது" : "Registration Closed",
                 count : 3
             })
         }
@@ -52,7 +52,7 @@ class CountDown extends React.Component{
                     shouldHidePrecedingZeros={true} onCountdownCompletion={() => this.changeClosing(this.state.count)}/>
                     : null}
 
-                    <Button className="countdown-button" onClick={() => this.props.history.push(`/Register`)} disabled={this.state.count!==2} >Register</Button>
+                    <Button className="countdown-button" onClick={() => this.props.history.push(`/Register`)} disabled={this.state.count!==2} >{this.props.tamil ? "பதிவு செய்ய" : "Register"}</Button>
                 </div>
         )
     }

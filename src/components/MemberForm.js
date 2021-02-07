@@ -55,37 +55,33 @@ class MemberForm extends React.Component{
 
     validateName(name)
     {
-        if (! /^[A-Za-z ]+$/.test(name))
-        return 'Name should contain only alphabets'
-        else if(name.trim().length < 4)
-        return 'Name Should atleast have 4 characters'
-        else if (name.trim().length > 18)
-        return 'Name should not exceed 18 characters'
+        if(name.trim().length < 4)
+        return this.props.tamil ? 'பெயர் குறைந்தபட்சம் 4 எழுத்துக்கள் இருக்க வேண்டும்' : 'Name Should atleast have 4 characters'
+        else if (name.trim().length > 20)
+        return this.props.tamil ? 'பெயர் 20 எழுத்துகளுக்கு மிகாமல் இருக்க வேண்டும்' : 'Name should not exceed 20 characters'
         return ''
     }
 
     validateEmail(mail)
     {
         if (! /\S+@\S+\.\S+/.test(mail))
-        return 'Provide a valid Email'
+        return this.props.tamil ? 'சரியான மின்னஞ்சலை வழங்கவும்' :  'Provide a valid E-mail'
         return ''
     }
 
     validateMobile(number)
     {
         if (! /^(1\s|1|)?((\(\d{3}\))|\d{3})(\\-|\s)?(\d{3})(\\-|\s)?(\d{4})$/.test(number))
-        return 'Provide a valid Mobile number'
+        return this.props.tamil ? 'சரியான தொலைபேசி எண்ணை வழங்கவும்' :  'Provide a valid Mobile number'
         return ''
     }
 
     validateOrg(org)
     {
-        if (! /^[A-Za-z ]+$/.test(org))
-        return 'should contain only alphabets'
-        else if(org.trim().length < 3)
-        return 'Should atleast have 3 characters'
+        if(org.trim().length < 3)
+        return this.props.tamil ? 'குறைந்தபட்சம் 3 எழுத்துக்கள் இருக்க வேண்டும்' : 'Should atleast have 3 characters'
         else if (org.trim().length > 20)
-        return 'should not exceed 20 characters'
+        return this.props.tamil ? '20 எழுத்துகளுக்கு மிகாமல் இருக்க வேண்டும்' : 'should not exceed 20 characters'
         return ''
     }
 
@@ -141,7 +137,7 @@ class MemberForm extends React.Component{
         if(change === "Work" && this.props.WorkCount > 0)
         {
             this.setState({
-                GradeError : 'A team Can\'t have more than 1 working Mentor'
+                GradeError : this.props.tamil ? 'ஒரு குழுவில் ஒன்றுக்கும் மேற்பட்ட வழிகாட்டிகளைக் இருக்க முடியாது' : 'A team Can\'t have more than 1 working Mentor'
             });   
         }
         else
@@ -163,7 +159,7 @@ class MemberForm extends React.Component{
         }
         this.setState({
             Organisation: e.target.value,
-            GradeError: this.state.Grade === '' ? 'Select a Grade' : '',
+            GradeError: this.state.Grade === '' ? ( this.props.tamil ? 'ஒரு தரத்தைத் தேர்ந்தெடுக்கவும்' : 'Select a Grade') : '',
             OrgError : err
         });
         
@@ -180,7 +176,7 @@ class MemberForm extends React.Component{
         }
         this.setState({
             Country: e.target.value,
-            GradeError: this.state.Grade === '' ? 'Select a Grade' : '',
+            GradeError: this.state.Grade === '' ? ( this.props.tamil ? 'ஒரு தரத்தைத் தேர்ந்தெடுக்கவும்' : 'Select a Grade') : '',
             CountryError : err
         });
         
@@ -193,68 +189,68 @@ class MemberForm extends React.Component{
         return(
             <div className="container">
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><div className="form-label" >Name:</div></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "பெயர்:" : "Name:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Name`} placeholder="Give Name"
+                        <Input type="string"  id={`Member${this.props.number}Name`} placeholder={ this.props.tamil ? "பெயர்த் தருக" : "Enter Name"}
                             value={this.state.Name} onChange={(e) => this.memberNameChange(e)} />
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.NameError === '' ? null : <div className="error-msg">{this.state.NameError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><div className="form-label" >Email:</div></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mail`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "மின்னஞ்சல்:" : "Email:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Mail`} placeholder="Give Email"
+                        <Input type="string"  id={`Member${this.props.number}Mail`} placeholder={ this.props.tamil ? "மின்னஞ்சலைத் தருக" : "Enter Email"}
                             value={this.state.Email} onChange={(e) => this.memberEmailChange(e)} />
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.EmailError === '' ? null : <div className="error-msg">{this.state.EmailError}</div>}
                         </FormText>
                     </div>
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><div className="form-label" >Mobile:</div></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Mobile`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "தொலைபேசி எண்:" : "Mobile:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Mobile`} placeholder="Give Mobile"
+                        <Input type="string"  id={`Member${this.props.number}Mobile`} placeholder={ this.props.tamil ? "தொலைபேசி எண்ணைத் தருக" : "Enter Mobile no."}
                             value={this.state.Mobile} onChange={(e) => this.memberMobileChange(e)} />
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.MobileError === '' ? null : <div className="error-msg">{this.state.MobileError}</div>}
                         </FormText>
                     </div>
                 </FormGroup> 
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><div className="form-label" >Grade:</div></Label>
+                    <Label className="col-4 text-center"><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "தகுதி:" : "Grade:"}</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
-                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}> School </div>
-                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> Degree </div>
-                            <div className={`col-3 m-0 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}> Work </div>
+                            <div className={`col-5 theme-option text-center ${this.state.Grade === "School" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("School")}>{ this.props.tamil ? "பள்ளி படிப்பு" : "School"} </div>
+                            <div className={`col-5 theme-option text-center ${this.state.Grade === "Degree" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Degree")}> { this.props.tamil ? "பட்ட படிப்பு" : "Degree"} </div>
+                            <div className={`col-5 theme-option text-center ${this.state.Grade === "Work" ? "theme-option-select" : ""}`} onClick={() => this.changeGrade("Work")}>  { this.props.tamil ? "பணி" : "Working"} </div>
                      </div>
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.GradeError === '' ? null : <div className="error-msg">{this.state.GradeError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-5 col-md-4 text-center" for={`Member${this.props.number}Org`} ><div className="form-label" >Organisation:</div></Label>
+                    <Label className="col-5 col-md-4 text-center" for={`Member${this.props.number}Org`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "அமைப்பு:" : "Organisation:"}</div></Label>
                     <div className="col-7 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Org`} placeholder="Give Organisation"
+                        <Input type="string"  id={`Member${this.props.number}Org`} placeholder={ this.props.tamil ? "அமைப்பு" : "Organisation"}
                             value={this.state.Organisation} onChange={(e) => this.memberOrgChange(e)} />
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.OrgError === '' ? null : <div className="error-msg">{this.state.OrgError}</div>}
                         </FormText>
                     </div>
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center" for={`Member${this.props.number}Country`} ><div className="form-label" >Country:</div></Label>
+                    <Label className="col-4 text-center" for={`Member${this.props.number}Country`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "தேசம்:" : "Country:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Country`} placeholder="Give Country"
+                        <Input type="string"  id={`Member${this.props.number}Country`} placeholder={ this.props.tamil ? "தேசம்" : "Country"}
                             value={this.state.Country} onChange={(e) => this.memberCountryChange(e)} />
-                        <FormText>
+                        <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.CountryError === '' ? null : <div className="error-msg">{this.state.CountryError}</div>}
                         </FormText>
                     </div>
