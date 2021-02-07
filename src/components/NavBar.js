@@ -15,7 +15,21 @@ class NavBar extends React.Component{
         this.toggleNav = this.toggleNav.bind(this);
    
         this.Items = [ 
-          
+            {
+                content:"NiralKalam",
+                link:"NiralKalam",
+                icon:"fort-awesome"
+            },
+            {
+                content:"Register",
+                link:"Register",
+                icon:"ticket"
+            },
+            {
+                content:"About us",
+                link:"AboutUs",
+                icon:"info-circle"
+            }
         ];
     }
    

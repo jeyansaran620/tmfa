@@ -2,7 +2,7 @@
 import MainForm from './MainForm';
 
 const Register = () => {
-    if(new Date() > new Date("2021-02-26"))
+    if(false && new Date() > new Date("2021-02-26"))
     {
         return (
             <div className="register">
@@ -12,7 +12,7 @@ const Register = () => {
             </div>
         );
     }
-    else if(new Date() < new Date("2021-02-10"))
+    else if(false && new Date() < new Date("2021-02-10"))
     {
         return(
             <div className="register">

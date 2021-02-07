@@ -318,12 +318,16 @@ code {
   font-weight: bold;
   padding: 0.5rem;
   margin: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .register img
 {
-  height: 65vh;
+  height: 50vh;
   width: auto; 
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 
@@ -348,7 +352,7 @@ code {
   border-radius: 5px;
   height: 90%;
   padding: 1rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   text-shadow: 0 0 0 transparent, 0 0 2px rgb(11, 127, 235);
 
@@ -432,6 +436,40 @@ code {
   border-radius: 15px;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   z-index: 0;
+  padding: 1rem;
+}
+
+.modal-design .modal-content
+{
+  margin: 2px solid floralWhite; 
+  font-weight: bold;
+  border-radius: 15px;
+  color: #23292C;
+  background-color: floralwhite;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-header
+{
+  background-color: #22222C;
+  color: floralwhite;
+}
+.rules-point
+{
+ padding: 0.25rem;
+}
+.close
+{
+  color: floralwhite;
+}
+.modal-button
+{
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .front-heading
@@ -475,6 +513,80 @@ code {
   padding: 0.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
+}
+
+.about-box 
+{
+  margin: 2px solid floralWhite; 
+  border-radius: 15px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  z-index: 0;
+  padding: 1rem;
+  overflow: hidden;
+}
+.about-heading
+{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem;
+  text-align: center;
+}
+.about-details
+{
+  padding: 0.5rem;
+  text-align: justify;
+  font-weight: 600;
+}
+.about-photo
+{
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.staff-intro
+{
+  margin: 2px solid floralWhite; 
+  border-radius: 15px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: floralwhite;
+  background-color: #2a3033;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.staff-photo
+{
+  height: 10rem;
+  width: auto;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer{
+  background-color: #2d3336;
+  margin: 0px auto;
+  padding: 20px 0px 20px 0px;
+  color: floralwhite;
+  border-radius: 5px;
+}
+
+.btn 
+{
+  color: floralwhite;
+}
+
+.btn:hover
+{
+  color: floralwhite;
+  transform: scale(1.05);
+}
+a,a:link, a:visited {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+  cursor: pointer;
 }
 
 @keyframes rot
