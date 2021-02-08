@@ -191,7 +191,7 @@ class MemberForm extends React.Component{
                 <FormGroup row className="p-2">
                     <Label className="col-4 text-center" for={`Member${this.props.number}Name`} ><div className={`form-label ${this.props.tamil ? "tamil" : ""}`} >{ this.props.tamil ? "பெயர்:" : "Name:"}</div></Label>
                     <div className="col-8 col-md-6 justify-content-center">
-                        <Input type="string"  id={`Member${this.props.number}Name`} placeholder={ this.props.tamil ? "பெயர்த் தருக" : "Enter Name"}
+                        <Input type="string"  id={`Member${this.props.number}Name`} placeholder={ this.props.tamil ? "பெயர் தருக" : "Enter Name"}
                             value={this.state.Name} onChange={(e) => this.memberNameChange(e)} />
                         <FormText  className={this.props.tamil ? "tamil" : ""}>
                             {this.state.NameError === '' ? null : <div className="error-msg">{this.state.NameError}</div>}

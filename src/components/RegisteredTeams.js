@@ -76,7 +76,7 @@ render()
                     {
                     team.TeamMembers.length === 0 ? <h5>No Members by now</h5>
                     :
-                     team.TeamMembers.reverse().map((mem,i) =>{
+                     team.TeamMembers.map((mem,i) =>{
                          return(
                               <Card body outline color="secondary" key ={i} className="col-11 card-sec col-sm-5 m-2">
                                     <CardTitle tag="h5">{mem.Name}</CardTitle>

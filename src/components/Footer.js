@@ -42,7 +42,7 @@ const  Items = tamil ?  [
                             {
                                 Items.map((item, i) => {
                                     return(
-                                        <div key={i} className="btn m-2">
+                                        <div key={i} className="btn">
                                             <Link to={`/${item.link}`}>{item.content}</Link>
                                         </div>  
                                     );
@@ -51,7 +51,7 @@ const  Items = tamil ?  [
                         </div>
                     </div>
                     <div className="col-12 col-sm-6">
-                        <div className="text-center">
+                        <div className="row justify-content-around text-center">
                             <a className="btn fa fa-mobile fa-lg" href="tel:+918825670247"> </a>
                             <a className="btn fa fa-envelope fa-lg" href="mailto:manavarmandramgct@gmail.com"> </a>
                             <a className="btn fa fa-instagram fa-lg" href="https://www.instagram.com/tmfa_gct/?hl=en"> </a>
