@@ -293,7 +293,7 @@ class MainForm extends React.Component{
                 </FormGroup>
 
                 <FormGroup row className="p-2">
-                    <Label className="col-4 text-center"><div className={`form-label ${this.props.tamil ? "tamil" : ""}`}  >{ this.props.tamil ? "அணியின் கருப்பொருள்" : "Team Theme:"}</div></Label>
+                    <Label className="col-4 text-center"><div className={`form-label ${this.props.tamil ? "tamil" : ""}`}  >{ this.props.tamil ? "அணியின் கருப்பொருள்: " : "Team Theme:"}</div></Label>
                     <div className="col-8 col-md-6">
                         <div className="row justify-content-around">
                             <div className={`col-5 p-1 theme-option text-center ${this.state.Theme === "Tamil Arts" ? "theme-option-select" : ""}`} onClick={() => this.changeTheme("Tamil Arts")}> { this.props.tamil ? "கலைகள்" : "Tamil Arts"} </div>

@@ -30,7 +30,7 @@ class FormSuccess extends React.Component
             .catch((err) => {
                 console.log(err)
                 this.setState({
-                    fetchError : 'team fetch Went Wrong !!!'
+                    fetchError :this.props.tamil ? 'விவரங்களை பெறுதல் தவறானது !!!' :'Details Fetch went Wrong!!!'
                 });
             })
         }
@@ -47,7 +47,7 @@ render()
     else if(team === null)
     {
         return (
-             <h3 style={{color:"#DE9E48",textAlign:"center"}}>Loading</h3>
+             <h3 style={{color:"#DE9E48",textAlign:"center"}}>{this.props.tamil ? 'ஏற்றுகிறது' :'Loading'}</h3>
         )
     }
     else
@@ -56,20 +56,20 @@ render()
             <div className="container" >
                 
                 <div className="row p-2 justify-content-around">
-                <h4 className="col-5 m-1" >Registration Success</h4>
+                <h4 className="col-5 m-1" >{this.props.tamil ? 'பதிவு ஏற்றுகொள்ளப்பட்டது' :'Registration Success'}</h4>
                 </div>
-                <Card body outline color="secondary" className="col-10 m-1">
+                <Card body outline color="secondary" className="col-10 m-auto">
         
-                <div className="row p-2 m-1">Team Name: {team.TeamName}</div>
+                <div className="row p-2 m-1">{this.props.tamil ? 'வணக்கம் ' :'Hello '} {team.TeamName}</div>
 
-                <div className="row p-2 m-1">Team Theme: {team.Theme}</div>
+                <div className="row p-2 m-1">{ this.props.tamil ? "அணியின் கருப்பொருள்: " : "Team Theme: "}{team.Theme}</div>
              
                 <div className="row p-2">
                     <div className="container">
-                    <div className="row m-1">Team Members:</div>
+                    <div className="row m-1">{ this.props.tamil ? "அணி உறுப்பினர்கள்" : "Team Members"}</div>
                     <div className="row">
                     {
-                    team.TeamMembers.length === 0 ? <h5>No Members by now</h5>
+                    team.TeamMembers.length === 0 ? <h5>{ this.props.tamil ? "இப்போது உறுப்பினர்கள் இல்லை" : "No Members by Now"}</h5>
                     :
                      team.TeamMembers.map((mem,i) =>{
                          return(

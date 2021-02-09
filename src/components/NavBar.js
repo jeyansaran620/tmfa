@@ -1,16 +1,16 @@
 import React from 'react';
-import {Navbar, Nav, NavbarToggler, Collapse, NavItem,} from 'reactstrap';
+import {Navbar, Nav, NavbarToggler, Collapse, Button, NavItem, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import { withRouter } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
 import Switch from "react-switch";
-
+import {EnglishRules, TamilRules} from './Content';
 class NavBar extends React.Component{
   
     constructor(props) {
         super(props);
     
         this.state = {
-            isNavOpen: false
+            isNavOpen: false,
+            isModOpen: false
         };
 
         this.toggleNav = this.toggleNav.bind(this);
@@ -50,7 +50,9 @@ class NavBar extends React.Component{
                 icon:"info-circle"
             }
         ];
+        
     }
+    
    
  
     toggleNav() {
@@ -58,7 +60,11 @@ class NavBar extends React.Component{
             isNavOpen: !this.state.isNavOpen
         });
     }
-   
+    toggleModal = () => {
+        this.setState({
+            isModOpen: !this.state.isModOpen
+        });
+    }
 
     RenderList()
     {
@@ -72,11 +78,15 @@ class NavBar extends React.Component{
                     Items.map((item, i) => {
                         return(
                             <NavItem key={i} className="m-1">
-                                <NavLink className="nav-link linker" to={`/${item.link}`}><span className={`fa fa-${item.icon} fa-md`}></span>  {item.content}</NavLink>
+                                <div className="nav-link" onClick={() => { if(this.state.isNavOpen) this.toggleNav(); this.props.history.push(`/${item.link}`); } } ><span className={`fa fa-${item.icon} fa-md`}></span>  {item.content}</div>
                             </NavItem>  
                         );
                     })
                 }
+                <NavItem className="m-1">
+                                <div onClick={() => { if(this.state.isNavOpen) this.toggleNav(); this.toggleModal(); }} className="nav-link linker" ><span className={`fa fa-angle-double-right fa-md`}></span>{this.props.tamil ? " விதிமுறைகள்" : " Rules"}
+                                </div>
+                </NavItem>  
                  </Nav>
                  </Collapse>
                  </>
@@ -85,6 +95,9 @@ class NavBar extends React.Component{
     }
 
     render(){
+
+        const Rules = this.props.tamil ? TamilRules : EnglishRules;
+
         return (
             <>
                 <Navbar dark expand="md" sticky="top"  >
@@ -100,6 +113,24 @@ class NavBar extends React.Component{
                       
                     </div>
                 </Navbar>
+                <Modal isOpen={this.state.isModOpen} toggle={() => this.toggleModal()} className="modal-design">
+                    <ModalHeader toggle={() => this.toggleModal()}>{this.props.tamil ? "விதிமுறைகள்" : "Rules & Regulations"} </ModalHeader>
+                    <ModalBody>
+                    {
+                           Rules.map((points,i) =>
+                            {
+                                return(
+                                     <div key={i} className={this.props.tamil ? "rules-point tamil ":" rules-point"}>
+                                         {`${i+1}) `} {points.point}
+                                     </div>
+                                    );
+                            })
+                        }
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button className={this.props.tamil ? "modal-button tamil ":"modal-button"} onClick={() => {this.toggleModal(); this.props.history.push(`/Register`); } }> {this.props.tamil ? "பதிவு செய்ய" : "Register"}</Button>
+                    </ModalFooter>
+                </Modal>
             </>
         );
     }
