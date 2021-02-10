@@ -1,5 +1,6 @@
 # TMFA - GCT: [Link to site](https://tmfa.herokuapp.com/)
     The live website in which people can View about the hackathon and register to it.
+    Now you are on the Front end resource.
 
 ## Advantages:
     Dark Mode.
