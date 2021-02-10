@@ -17,16 +17,16 @@ const AboutUS = ({tamil}) =>
                     <CardImg className="staff-photo" top width="100%" src="./images/gct_principal.jpg" alt="Card image cap" />
                     <CardBody> 
                        
-                        <CardTitle tag="h5">{tamil ? "டாக்டர் பி.தமரை, பி.எச்.டி." : "Dr.P.Thamarai,Ph.D."}</CardTitle>
+                        <CardTitle tag="h5">{tamil ? "டாக்டர் பி.தாமரை, பி.எச்.டி." : "Dr.P.Thamarai,Ph.D."}</CardTitle>
                         <CardSubtitle tag="h6" className="mb-2 text-muted">{tamil ? "கல்லூரி முதல்வர்" : "Principal"}</CardSubtitle>
-                        <CardText>{tamil ? "அரசு தொழில்நுட்பக் கல்லூரி" : "Government College of Technology"}</CardText>
+                        <CardText>{tamil ? "அரசினர் தொழில்நுட்பக் கல்லூரி" : "Government College of Technology"}</CardText>
                     </CardBody>
                 </Card>
                 <Card className="col-12 col-lg-5 staff-intro">
                     <CardImg className="staff-photo" top width="100%" src="./images/tmfa_advisor.jpg" alt="Card image cap" />
                     <CardBody> 
                         <CardTitle tag="h5">{tamil ? "டாக்டர் ஜே.அன்பழகன் விஜய்" : "Dr.J.Anbazhagan Vijay"}</CardTitle>
-                        <CardSubtitle tag="h6" className="mb-2 text-muted">{tamil ? "டி.எம்.எஃப்.ஏ- ஆலோசகர்" : "TMFA- Advisor"}</CardSubtitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted">{tamil ? "தமிழ் மற்றும் நுண்கலை மன்ற ஆலோசகர்" : "TMFA- Advisor"}</CardSubtitle>
                     </CardBody>
                 </Card>
                 </div>

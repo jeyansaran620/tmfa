@@ -1,6 +1,7 @@
 {
   "name": "tmfa",
   "version": "0.1.0",
+  "homepage": "https://tmfa-gct.com/",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.12.13",

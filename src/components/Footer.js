@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
-
-
 const Footer = ({tamil}) =>{
     
 const  Items = tamil ?  [ 
@@ -51,8 +48,10 @@ const  Items = tamil ?  [
                         </div>
                     </div>
                     <div className="col-12 col-sm-6">
+                        <div className="text-center h6" id="ContactUs">{tamil ? "தொடர்புக்கு" : "Contact Us"}</div>
                         <div className="row justify-content-around text-center">
-                            <a className="btn fa fa-mobile fa-lg" href="tel:+918825670247"> </a>
+                            <a className="btn" href="tel:+918825670247"><span className={`fa fa-phone fa-lg`}></span> <strong>{tamil ? " பொதுச்செயலர்" : " general secretary"}</strong></a>
+                            <a className="btn" href="tel:+917397087908"><span className={`fa fa-mobile fa-lg`}></span> <strong>{tamil ? " பொருளாளர்" : " treasurer"}</strong></a>
                             <a className="btn fa fa-envelope fa-lg" href="mailto:manavarmandramgct@gmail.com"> </a>
                             <a className="btn fa fa-instagram fa-lg" href="https://www.instagram.com/tmfa_gct/?hl=en"> </a>
                             <a className="btn fa fa-facebook fa-lg" href="https://www.facebook.com/tmfagct/?hc_ref=ARTFvEoDpDB7_-HzKgenlzxfrdrlUNLcoe2AJK2g5-cz7wBu_tGcVawMlAEYjJKKslo&fref=nf&__tn__=kC-R"> </a>
@@ -64,7 +63,7 @@ const  Items = tamil ?  [
                 </div>  
                 <div className="row row-main justify-content-center">             
                     <div className="col-auto btn m-0 mt-2">
-                        <a href="https://www.linkedin.com/in/jeyansaran620">{tamil ? "வடிவமைப்பு ஜெயன்" : "Designed by jeyan saran"}</a>
+                        <a href="https://www.linkedin.com/in/jeyansaran620">{tamil ? "தொழில்நுட்ப குழு - ஜெயன்" : "TMFA Tech Team - Jeyan"}</a>
                     </div>
                 </div>
             </div>

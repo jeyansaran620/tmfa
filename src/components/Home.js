@@ -37,14 +37,17 @@ const Home = ({tamil}) => {
                 <div className="row row-main">
                 <div className="col-12 col-lg-6 logo-box">
                     <div className="logo-tabs row justify-content-around" >
-                        <div className="col-12 text-center col-md-4">
+                        <div className="col-12 text-center col-md-3">
                             <img className="logo-sp" href={`#k`} src="./images/tmfa.png" alt="hacker" />
                         </div>
-                        <div className="col-6 text-center col-md-4">
+                        <div className="col-6 text-center col-md-3">
                             <img className="logo-sp" href={`#k`} src="./images/gct.png" alt="hacker" />
                         </div>
-                        <div className="col-6 text-center col-md-4">
+                        <div className="col-6 text-center col-md-3">
                             <img className="logo-sp" href={`#k`} src="./images/infitt.png" alt="hacker" />
+                        </div>
+                        <div className="col-12 text-center col-md-3">
+                            <img className="logo-sp" href={`#k`} src="./images/niralkalam.png" alt="hacker" />
                         </div>
                     </div>
                     <div className="logo-tabs row text-center justify-content-around" >
@@ -54,13 +57,15 @@ const Home = ({tamil}) => {
                         <div className="col-10 logo-details">
                         {tamil ? "தமிழ் மற்றும் நுண்கலை மன்றம்" : "Tamil Mandram and Fine Arts Club"}
                         </div>
+                        <div className="col-10 logo-details">
+                        {tamil ? "& உத்தமம்" : "& INFITT"}
+                        </div>
                         <div className="col-8 logo-details col-md-6">
-                          {tamil ? "நடத்தும்" : "Presents"}
+                          {tamil ? "இணைந்து நடத்தும்" : "Jointly Presents"}
                         </div>
                     </div>
 
-                    <img className="logo-bl" href={`#k`} src="./images/logo-bg.png" alt="hacker" />
-                    <img className="logo" href={`#k`} src="./images/logo.png" alt="hacker" />
+                    <img className={`${tamil? "" : "ml-4"} logo`} href={`#k`} src={`./images/${tamil ? "tamil-logo" : "english-logo"}.png`} alt="hacker" />
                 </div>
                 
                 <div className="col-12 d-lg-none col-lg-6 intro-box-small">
@@ -140,7 +145,7 @@ const Home = ({tamil}) => {
                 <div className="row row-main justify-content-around">
                     <div className="col-10 col-lg-5 offset-1 mt-2 mb-2">
                         <CountDown tamil={tamil} />
-                    </div>
+                    </div> 
                     <div className="col-10 col-lg-5 offset-1 mt-2 mb-2">
                         <div className="front-heading">  {tamil ? "கருப்பொருள்கள்:": "Themes:"}</div>
                         {
@@ -149,12 +154,13 @@ const Home = ({tamil}) => {
                                 return(
                                     
                                      <div key={i} className="theme row">
-                                        <div className={`theme-heading${tamil ? "-tamil" : ""} col-12 col-lg-2`}>{points.heading}</div>
-                                        <div className={`theme-detail${tamil ? "-tamil" : ""} col-12 col-lg-10`}>{points.detail}</div>
+                                        <div className={`theme-heading${tamil ? "-tamil" : ""} col-12 col-lg-3`}>{points.heading}</div>
+                                        <div className={`theme-detail${tamil ? "-tamil" : ""} col-12 col-lg-9`}>{points.detail}</div>
                                      </div>
                                     );
                             })
-                        }
+                        } 
+                        <a className="front-heading" href="https://drive.google.com/folderview?id=11Zw2CaQeqcQ5jgTbu_ed6CMOJog-frrQ" > {tamil ? "சிக்கல் கூற்றுகள்(Problem Statements)": "Problem Statements"} <span className={`fa fa-download fa-md`}></span> </a>
                     </div>
                 </div>
                 <div className="row row-main justify-content-around">
@@ -172,7 +178,7 @@ const Home = ({tamil}) => {
                         }
                     </div>
                     <div className="col-10 col-lg-5 text-center offset-1 mt-2 mb-2">
-                        <Button className="rules-font" onClick={toggle} >{tamil ? "விதிகளை அறிவீர்கள்?": "Know the Rules?"}</Button>
+                        <Button className="rules-font" onClick={toggle} >{tamil ? "விதிகளை அறிவீர்களா?": "Know the Rules?"}</Button>
                         <img className="rules-pic" href={`#k`} src="./images/question.png" alt="hacker" />
                     </div>
                 </div>

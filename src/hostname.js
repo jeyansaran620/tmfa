@@ -1,1 +1,1 @@
-export const hostname = "https://tmfa-server.herokuapp.com/";
+export const hostname = "https://server.tmfa-gct.com/";

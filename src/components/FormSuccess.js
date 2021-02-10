@@ -56,7 +56,7 @@ render()
             <div className="container" >
                 
                 <div className="row p-2 justify-content-around">
-                <h4 className="col-5 m-1" >{this.props.tamil ? 'பதிவு ஏற்றுகொள்ளப்பட்டது' :'Registration Success'}</h4>
+                <h4 className="col-5 m-1" >{this.props.tamil ? 'பதிவு வெற்றி!!!' :'Registration Success!!!'}</h4>
                 </div>
                 <Card body outline color="secondary" className="col-10 m-auto">
         
